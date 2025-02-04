@@ -1,0 +1,307 @@
+---
+ebook:
+  theme: one-dark.css
+  title: Photon
+  authors: Escatrgot
+  disable-font-rescaling: true
+  margin: [0.1, 0.1, 0.1, 0.1]
+---
+<style>
+        h2:not(.tit) { border-top: 12px solid #143666; border-left: 5px solid #143666; border-right: 5px solid #143666; background-color: #143666; color: #FFF !important; font-weight: bold;}
+
+    h3:not(.tit) { border-top: 3px solid #004480; border: 2px solid #004480; background-color: #004480; color: #FFF !important;}
+
+
+    h4:not(.tit) { font-weight: bold; color: #FFF !important; }
+
+    summary { cursor:pointer; font-weight:bold; color : #0F0 !important;}
+
+    .red{color: #d93d3d;}
+    .darkred{color: #470909;}
+    .orange{color: #cf6d1d;}
+    .yellow{color: #DD3;}
+    .green{color: #25ba00;}
+    .blue{color: #169ae0;}
+    .pink{color: #d10fd1;}
+    .dim{color : #666666;}
+    .lime{color : #addb40;}
+    
+    .container {
+        display : flex; 
+        flex-direction:row;
+        align-items:center;
+    }
+    .item {
+        margin-right:2%;
+    }
+
+    @media screen and (min-width:1001px){
+        .container {
+            width: 90%;
+            flex-wrap : nowrap;
+            justify-content:center;
+        }
+    }
+    
+    @media screen and (max-width:1000px){
+        .container {
+            width: 98%;
+            flex-wrap : nowrap;
+            justify-content:center;
+        }
+    }
+    
+    @media screen and (max-width:799px){
+        .container {
+            justify-content:left;
+            flex-wrap : wrap;
+        }
+    }
+
+</style>
+
+## 🔄 Photon 소개
+
+#### PUN2 (Photon Unity Networking) 패키지를 사용해 보자 
+
+##### 제공하는 기능들
+
+1. 클라-서버 연결&콜백
+2. 객체/데이터 동기화
+3. 서버, 매치 메이킹
+4. LoadBalancing API & RPC API 제공
+5. Shared Room 방식의 토폴로지만 제공
+
+
+### 📄 1. 연결과 콜백
+
+
+#### 1). 연결 
+
+##### `PhotonNetwork.ConnectUsingSettings()`
+
+* 즉시 온라인 상태로 만들어 줌
+  *온라인 상태로 만드는 최소 조건이 뭐지?*
+* "PhotonServerSettings.Asset" 에셋에 의존
+
+#### 2). 콜백
+
+##### ① 콜백 작동시키는 방법 두가지
+1. **인터페이스 구현**
+    * 모든 상태 변화에 대한 감지를 위한 콜백은 인터페이스로 구성하고 있다.
+    * 그리고 그러한 콜백을 사용해야 하는 클래스는 인터페이스로 구현해야 하고
+    * `PhotonNetwork.AddCallbackTarget(this)`을 통해 "인터페이스 구현 인스턴스"를 등록해야한다
+      ```cs
+      // 예를들어 유니티에서, MonoBehaviour의 OnEnable() 과 OnDisable()을 사용하실 수 있습니다.
+      PhotonNetwork.AddCallbackTarget(this);
+      PhotonNetwork.RemoveCallbackTarget(this);
+      ```
+2. **`MonoBehaviourPunCallbacks` 클래스 상속받기**
+    * 이걸 상속받으면 구현을 호출할 필요는 없음 
+
+##### ② `IConnectionCallbacks.OnConnectedToMaster()`
+
+* `MonoBehaviourPunCallbacks : IConnectionCallbacks` 클래스를 상속받아 위 함수를 Override한다.
+* 클라이언트의 연결과, 룸의 참여시 발생되는 콜백
+
+##### ③ 콜백 인터페이스들
+* `IConnectionCallbacks`: 연결 관련 콜백.
+* `ILobbyCallbacks`: 로비 관련 콜백.
+* `IMatchmakingCallbacks`: 매치메이킹 관련 콜백.
+* `IInRoomCallbacks`: 룸안에서 발생한 것에 대한 콜백.
+* `IPunOwnershipCallbacks`: PUN 소유권 이전 콜백.
+* `IOnEventCallback`: 수신된 이벤트에 대한 단일 콜백. C# 이벤트 LoadBalancingClient.OnEventReceived 와 '동등' 합니다.
+* `IWebRpcCallback`: WebRPC 오퍼레이션 응답 수신에 대한 단일 콜백.
+* `IPunInstantiateMagicCallback`: PUN 프리팹의 인스턴스화에 대한 단일 콜백.
+* `IPunObservable`: PhotonView 직렬화 콜백.
+
+### 📄 2. 매치 메이킹
+
+* 룸 생성, 룸 참여, 룸 게임 시작
+* 서버는 클라이언트에서 요청한 무작위 룸을 선택해야 한다.
+* 다양한 필터링 옵션으로 선택범위를 좁힐 수 있다.
+* `OnConnectedToMaster()` 내부에서 사용 가능함
+
+#### 1). 로비와 룸 목록
+* 서버에 쿼리문을 날릴 수도, 클라이언트 사이드에서 `SQL Lobbay` 사용 가능
+* 이를 통해 룸에 대한 필터링가능
+
+#### 2). 룸 옵션
+
+* 룸 생성시 옵션 세팅 가능
+  1. 최대 플레이어 수
+  2. Private 룸 생성
+* userID 접근을 통해 연결 끊김 등등을 처리 가능
+
+#### 3). 매치메이킹을 위한 사용자정의 속성
+
+#### 4). 슬롯 예약
+* 가까운 사람과 팀, 단체 매칭을 위해 슬롯 예약이라는 기능으로 플레이어를 고정하여 같이할 수 있다.
+
+##### `PhotonNetwork.CreateRoom(string)`
+* 동일한 이름의 방이 존재하면 실패함
+* `IMatchmakingCallbacks.OnCreateRoomFailed` 형식으로 콜백
+##### `PhotonNetwork.JoinRoom(string)`
+* 닫혀있거나 가득찼으면 실패함
+* `IMatchmakingCallbacks.OnJoinRoomFailed` 형식으로 콜백
+##### `PhotonNetwork.JoinRandomRoom()`
+* 게임 룸이 아예 없을떄 실패함
+* `IMatchmakingCallbacks.OnJoinRandomFailed` 형식으로 콜백
+##### `RoomOptions`
+
+### 📄 3. 게임 로직
+
+
+#### 1). 네트워크 객체 : `PhotonView Componenet`
+
+<div align=center>
+    <img src="https://doc.photonengine.com/docs/img/PhotonView.png">
+</div>
+
+* 이 컴포넌트를 부착했으면 네트워크 객체로 전환된다.
+  즉, "networked GameObjects" 로써 인스턴스화 될 수 있음
+* `PhotonView` 네트워크를 통해 객체를 식별하고, 해당 객체의 상태를 동기화하는데 사용됨.
+* 단, `PhotonView`는 런타임에 인스턴스화 된 프리펩에 연결된다. *(일반적으로)*
+
+##### `Observed Componenet`
+* 초당 몇회의 네트워크 상태의 Read/Write 책임을 갖고 있음 *대표적으로 게임 오브젝트의 위치를 주고 받고 할수있다.*
+* `PhotonNetwork.Instantiate`
+  * Observed 컴포넌트를 가진 PhotonView 컴포넌트를 동적 생성하기 위해 사용 가능하다.
+* `IPunObservable.OnPhotonSerializeView(PhotonStream, PhotonMessageInfo)`
+* 이 함수를 구현함으로 네트워크 객체의 상태 Read/Write 작성할 수 있다.
+
+
+#### 2). 메세징
+* **두가지 메세지 기능을 가지고 있다.**
+  1. **RPC** : "원격 프로지셔 호출" 특정 네트워크 객체상에 때로 발생하는 모든것에 대해 원격 프로시저 호출 사용 가능
+     `photonView.RPC("OnAwakeRPC", RpcTarget.All, (byte)1);`
+     `[PunRPC] : Attribute \ void OnAwakeRPC(byte myParameter)`
+  1. **PhotonView**
+     * `OnSerializePhotonView` 함수를 구현해야 함.
+
+* **메세지를 서버에 버퍼링 할 수도 있다.**
+  * 나중에 참가한 플레이어에게 메세지 전송
+  * 캐릭터 스폰
+
+##### `PhotonNetwork.RaiseEvent(eventCode, eventContent, raiseEventOptions, SendOptions.SendReliable);`
+* GameObject와 별개로 이벤트 전송도 가능하다.
+
+#### 3). Mecanim (Animator) 동기화
+* 애니메이션 상태를 자동으로 동기화 하는 컴포넌트
+
+#### 4). 동기화된 타임스탬프
+* 클라이언트가 Photon Server에 연결할 때마다 지연된 타임스탬프가 동기화할 것 입니다.
+* 모든 플레이어가 동일 게임 서버에 연결되므로, 이벤트 타이밍을 동기화 할 때 사용할 수 있다.
+
+#### 5). 비교하고 스왑(Compare-And-Swap, CAS)
+* 클라 변조를 막을떄 사용할 수 있을 것 같아 보인다.
+
+#### 6). 객체-제어 이전
+* 게임 오브젝트의 제어권을 요청하거나 양도할 수 있음.
+
+#### 7). 사용자 타입 직렬화
+* 직렬화 코드를 커스텀하게 정의할 수 있다.
+
+#### 8). WebHooks 그리고 데이터 보관 전략
+* Photon Server와 다른 서비스 및 사용자 서비스를 연결하기 위해서 WebHooks의 개념을 이용합니다.
+* 외부 REST 기반 서비스를 업데이트하는 데 사용할 수 있습니다.
+
+#### 9). 턴기반 게임
+
+* 턴 기반 게임에 두가지 옵션 제공
+  1. PlayerTTL은 연결이 끊긴후 참가자가 룸에서 "비활성" 상태를 유지하는 시간을 정의
+     *"비활성" 상태? 이때 게임에서 어떻게 표시되는지 예시는 없나* 
+  2. PlayerTTL은 룸의 모든 플레이어들의 연결이 끊긴 이후 룸이 존재하는 시간 정의
+     재참여하는 플레이어들을 위해 룸과 플레이어 스팟을 유지할 수 있음
+
+
+---
+
+## 🔄 Photon 호스팅
+
+### 📄 1. 호스팅
+#### 1). PUN 클라이언트는 클라우드에 연결해야한다.
+#### 2). 최적지역
+* 동일한 네트워크에 연결된 클라이언트라 하더라도, 서로 다른 지역으로 연결 되기도 한다.
+* 온라인 지역 화이트 리스트를 사용하여 지역을 지정해 접속할 수 있다.
+#### 3). Udp, Tcp 와 WebSockets
+* 기본 전송 프로토콜은 UDP 임
+* WebSocket 같은 경우 일부 플랫폼에서 유일하게 지원되는 프로토콜이다.
+
+### 📄 2. 일반 사항
+
+#### 1). `PhotonView` 컴포넌트를 통해 게임 객체를 쉽게 네트워크로 연결할 수 있음
+#### 2). 인증
+* Photon은 게임 타이틀에서 사용해야 하는 커뮤니티 백엔드를 통합하기 위해 아주 간단한 REST API를 사용
+
+### 📄 3. 성능 옵션
+#### 1). Pooling 지원
+* 모든 네트워크 개체에 대해 풀 구현을 사용할 수 있음.
+
+#### 2). 캐싱
+
+* 인스턴스화 하기 위해 로드되는 리소스를 캐시할 수 있음
+* 가비지 콜렉션을 감소시켜 메모리 비용을 줄여줌
+
+#### 3). SendRate/SendRateOnSerialize
+
+* PUN은 네트워크 개체에서 업데이트 쓰기(그리고 읽기) 속도를 제어할 수 있음.
+* 메시지를 넣어 어떤 업데이트에 보낼지에 대한 속도는, 독립적으로 설정가능
+
+---
+
+## 🔄 Photon 설정과 연결
+
+<div align=center>
+    <img src="https://doc.photonengine.com/docs/img/image003.png">
+    <h5>  "Window", "Photon Unity Networking" 메뉴 </h5>
+</div>
+
+##### ① Application ID (AppId)
+
+<div align=center>
+    <img src="image/2025-02-05-04-11-01.png">
+    <h5> 관리화면 </h5>
+</div>
+
+* Photon Cloud 에서 어플리케이션ID(AppId)는 타이틀과 가상 어플리케이션의 주 식별자 입니다.
+AppId는 대시보드에서 쉽게 찾을 수 있습니다. 거의 모든 데모에서 AppId 가 필요하게 됩니다.
+
+#### 1). PhotonServerSettings
+
+<div align=center>
+    <img src="https://doc.photonengine.com/docs/img/pun2-photonserversettings.png">
+    <h5>인스펙트내의 PhotonServerSettings</h5>
+</div>
+
+1. **AppId Realtime, Chat 그리고 Voice** 
+2. **App 버젼**: 다른 버젼 클라끼리 서로 분리
+3. **네임 서버**: **자체 호스팅할 경우에는 체크 해제하자**
+4. **고정된 지역**: 기본값은 최적의 지역을 선택
+5. **서버**: 포톤 서버를 호스팅할때 사용 이렇게 하기 위해서는, Photon Server SDK가 필요함
+6. **포트와 프로토콜**: 하나의 세션에서 여러개의 서버들을 사용하기 위해 구축
+iOS용 게임을 개발한다면 "PUN 과 IPv6" 그리고 "IPv6 에서 Photon Server 설정 방법" 을 읽어 보시는 것도 좋습니다.
+여기에 입력된 포트 번호는, 연결할 첫번째 서버중 하나임
+그리고 일반적으로 전송 프로토콜은 UDP 이지만, TCP, WebSockets을 지원하기도 함
+7. **로깅**
+    * **로비 통계 사용** : 서버에서 로비 통계를 받기 위해서는 이것을 반드시 체크해야 합니다.
+    * **네트워크 로깅**
+    * **Support Logger** : 연결, 매치메이킹 또는 룸에서 발생하는 작업을 추적해야 할 때 유용합니다. 
+    이 옵션을 선택하면 스크립트가 콜백에 등록되고 게임 디버깅에 도움이 되는 중요 정보를 기록합니다.
+8. **RPC 목록**
+    * 룸 내의 다른 클라이언트 상의 메소드를 호출 할 수 있도록 해줍니다.
+    * PUN은 이러한 방법의 목록을 "PhotonServerSettings.Asset" 에 보관하며 
+    RPC를 호출할 때 각 이름의 인덱스를 약어로 사용합니다.
+
+### 📄 자체 호스팅
+
+#### 1). PhotonServerSettings
+* **네임서버 체크 해제 & 고정 지역 지우기**
+* "Server" 세팅에 기입할 값을
+  * IP (스탠드얼론 빌드이면 "localhost" 또는 127.0.0.1)
+  * 포톤 서버의 호스트 명
+
+#### 2). 수동 연결
+* 두가지가 필요하다.
+    1. **masterServerAddress** : On-Premises DNS명 또는 IP, 
+    2. **port** 
