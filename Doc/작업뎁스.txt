@@ -10,3 +10,10 @@
     Demos And Tutorial : https://doc.photonengine.com/ko-kr/pun/current/demos-and-tutorials/pun-basics-tutorial/intro
     매치메이킹 가이드 : https://doc.photonengine.com/ko-kr/pun/current/lobby-and-matchmaking/matchmaking-and-lobby
     RPC와 RaiseEvent : https://doc.photonengine.com/ko-kr/pun/current/gameplay/rpcsandraiseevent
+
+---
+
+1. 씬 매니저 도입
+    왜 UILayer를 상속 받은애를 초기화 해야 할 수 밖에 없었는가?
+2. 어드레서블 로드
+    어드레서블 로드를 어떻게 할 것인가?

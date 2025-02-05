@@ -16,66 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 1c3a8b0519e0a46d9a8cc0be5b356427
-  m_SerializeEntries:
-  - m_GUID: de79b1e89e8184a72a8883889f26998f
-    m_Address: Sprites/BackgroundImage
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Fall
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 03207581188f449d6ac85160a9ffd71c
-    m_Address: Prefabs/PlayChallengeButton
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Fall
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2ec3eb9d0951141a9a431f805d0d2605
-    m_Address: Prefabs/PlayButton
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Fall
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fd9450c13ec444e10bfcf19f9c10d001
-    m_Address: Sprites/ButtonArt
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Fall
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f24b3374a6f3eb0489f0bd60a499688d
-    m_Address: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2801ac353257134459299cec1ea2273d
-    m_Address: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animator
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 12e34119f8e2e904c9e1e637277bb7eb
-    m_Address: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Materials
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5fa329cda4378e445abea9a25d5c7ffe
-    m_Address: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Models
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 94d57f1478b3a8949843d3d4a2b7f8df
-    m_Address: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Prefabs
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4b88345814cbcf34c97ce101e4f5d8a6
-    m_Address: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Skin
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 15ea5c1da8ad3e14490043dddecfa93d
-    m_Address: Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Textures
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d098d9082bf4e4f6b94dbf2997c0917c, type: 2}
   m_SchemaSet:

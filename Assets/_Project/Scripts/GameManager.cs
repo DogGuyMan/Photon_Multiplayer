@@ -15,7 +15,20 @@ namespace Com.MyCompany.MyGame
     // 이를 위해 UI Button 필요, 또한, Photon 메서드를 호출하는 스크립트도 필요
     public class GameManager : MonoBehaviourPunCallbacks
     {
+        public static GameManager _instance;
+        public static GameManager Instance => _instance;
+
+        #region Monobehaviour Callbacks
+
+        private void Start()
+        {
+            _instance = this;
+        }
+
+        #endregion
+
         #region Photon Callbacks
+
 
         public override void OnLeftRoom()
         {
