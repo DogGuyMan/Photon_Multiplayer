@@ -6,7 +6,7 @@ using Cysharp.Threading.Tasks;
 
 namespace Com.MyCompany.MyGame
 {
-    public class PlayerDataModel : SingletonMonobeheviour<PlayerDataModel>
+    public class PlayerDataModel : SingletonDontDestroyMonobeheviour<PlayerDataModel>
     {
         public PlayerInfo PlayerInfo;
 

@@ -12,11 +12,6 @@ namespace Com.MyCompany.MyGame
 {
     public class TitleMain : MonoBehaviour
     {
-        private void Awake()
-        {
-
-        }
-
         private async void Start()
         {
             await RunAllTasks();

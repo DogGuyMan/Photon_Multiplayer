@@ -54,10 +54,22 @@ EditorBuildSettings:
     path: Assets/Use Case Samples/Serverless Multiplayer Game/AdditionalScenes/Game.unity
     guid: cf85597d03bc8e54f83e793629866666
   - enabled: 1
+    path: Assets/_Project/Scenes/Title.unity
+    guid: e476f887bc59145d5b1618f293b553ac
+  - enabled: 1
     path: Assets/_Project/Scenes/Launcher.unity
     guid: 14e46082fa04d4006ab315a8e00fe92d
   - enabled: 1
-    path: Assets/_Project/Scenes/Title.unity
-    guid: e476f887bc59145d5b1618f293b553ac
+    path: Assets/_Project/Scenes/Room for 1.unity
+    guid: eed4ea63826aa4ee1b57586ee11706f6
+  - enabled: 1
+    path: Assets/_Project/Scenes/Room for 2.unity
+    guid: c79ea5660916b4d438e0d95f5e30a798
+  - enabled: 1
+    path: Assets/_Project/Scenes/Room for 3.unity
+    guid: 954fd295058864789b85457c015ebebd
+  - enabled: 1
+    path: Assets/_Project/Scenes/Room for 4.unity
+    guid: 1bc097e05d2344a189c9aa38f16e136e
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: c6ca533da370b4f2794f0c63c45e0e6f, type: 2}

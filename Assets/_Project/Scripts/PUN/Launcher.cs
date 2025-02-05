@@ -25,6 +25,7 @@ namespace Com.MyCompany.MyGame
         [SerializeField]
         private GameObject progressLabel;
 
+
 #endregion
 
 #region Private Fields
@@ -33,8 +34,26 @@ namespace Com.MyCompany.MyGame
         /// 클라이언트 버젼 넘버, 유저는 이 클라이언트 버젼에 따라 분리된다.
         /// </summary>
         private string gameVersion = "1";
+        private bool isConnecting;
 
-#endregion
+        // 이 값은 당연히 씬 전환 되고 Start()이 호출 될떄마다. 값이 초기화 된다.
+        // 따라서 이 값은 씬 전환을 통해 이전 씬의 값이 유지되지 않는다.
+        private bool IsConnecting
+        {
+            get
+            {
+                Debug.Log($"PUN Basics Tutorial/Launcher: IsConnecting Getted {isConnecting}");
+                return isConnecting;
+            }
+            set
+            {
+                Debug.Log($"PUN Basics Tutorial/Launcher: IsConnecting Setted {value}");
+                isConnecting = value;
+            }
+        }
+
+
+        #endregion
 
 #region MonoBehaviour Callbacks
 
@@ -51,9 +70,10 @@ namespace Com.MyCompany.MyGame
         {
             progressLabel.SetActive(false);
             controlPanel.SetActive(true);
+            IsConnecting = false;
         }
 
-        #endregion
+#endregion
 
 #region Public Methods
 
@@ -64,6 +84,8 @@ namespace Com.MyCompany.MyGame
         /// </summary>
         public void Connect()
         {
+            Debug.Log("PUN Basics Tutorial/Launcher: Connect() was called by PUN");
+            IsConnecting = true;
             progressLabel.SetActive(true);
             controlPanel.SetActive(false);
 
@@ -85,7 +107,10 @@ namespace Com.MyCompany.MyGame
         public override void OnConnectedToMaster()
         {
             Debug.Log("PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN");
-            PhotonNetwork.JoinRandomRoom();
+            if(IsConnecting)
+            {
+                PhotonNetwork.JoinRandomRoom();
+            }
         }
 
         public override void OnDisconnected(DisconnectCause cause)
@@ -106,6 +131,11 @@ namespace Com.MyCompany.MyGame
         public override void OnJoinedRoom()
         {
             Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+            if(PhotonNetwork.CurrentRoom.PlayerCount == 1)
+            {
+                Debug.Log("We load the 'Room for 1' ");
+                PhotonNetwork.LoadLevel("Room for 1");
+            }
         }
 
 #endregion
