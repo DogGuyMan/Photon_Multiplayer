@@ -18,6 +18,13 @@ namespace Com.MyCompany.MyGame
         [SerializeField]
         private byte maxPlayersPerRoom = 4;
 
+        [Tooltip("The Ui Panel to let the user enter name, connect and play")]
+        [SerializeField]
+        private GameObject controlPanel;
+        [Tooltip("The UI Label to inform the user that the connection is in progress")]
+        [SerializeField]
+        private GameObject progressLabel;
+
 #endregion
 
 #region Private Fields
@@ -28,7 +35,6 @@ namespace Com.MyCompany.MyGame
         private string gameVersion = "1";
 
 #endregion
-
 
 #region MonoBehaviour Callbacks
 
@@ -41,10 +47,10 @@ namespace Com.MyCompany.MyGame
             PhotonNetwork.AutomaticallySyncScene = true;
         }
 
-        // Start is called before the first frame update
         private void Start()
         {
-            Connect();
+            progressLabel.SetActive(false);
+            controlPanel.SetActive(true);
         }
 
         #endregion
@@ -58,6 +64,9 @@ namespace Com.MyCompany.MyGame
         /// </summary>
         public void Connect()
         {
+            progressLabel.SetActive(true);
+            controlPanel.SetActive(false);
+
             if(PhotonNetwork.IsConnected)
             {
                 PhotonNetwork.JoinRandomRoom();
@@ -81,6 +90,8 @@ namespace Com.MyCompany.MyGame
 
         public override void OnDisconnected(DisconnectCause cause)
         {
+            progressLabel.SetActive(false);
+            controlPanel.SetActive(true);
             Debug.LogWarningFormat("PUN Basics Tutorial/Launcher: OnDisconnected() was called by PUN with reason {0}", cause);
         }
 
@@ -97,6 +108,6 @@ namespace Com.MyCompany.MyGame
             Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
         }
 
-        #endregion
+#endregion
     }
 }
