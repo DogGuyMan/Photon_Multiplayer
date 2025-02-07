@@ -4,12 +4,34 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Com.MyCompany.MyGame
 {
     // PhotonView로 노출 시키기 위해 MonoBehaviourPunCallbacks 상속
     public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
     {
+
+#region Serializable Fields
+
+        [Tooltip("The Player's UI GameObject Prefab")]
+        [SerializeField]
+        private GameObject playerUiPrefab;
+
+#endregion
+
+#region Public Fields
+
+        /// <summary>
+        /// 로컬 플레이어의 인스턴스를 저장해야 한다, "프리펩이 아님!"
+        /// 그래서 이것을 사용해 현재 룸에 타 플레이어가 있는지 체크한다.
+        /// </summary>
+        [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
+        private static GameObject localPlayerInstance;
+        public static GameObject LocalPlayerInstance => localPlayerInstance;
+
+#endregion
+
 #region Private Fields
 
         [Tooltip("The current Health of our player")]
@@ -52,6 +74,42 @@ namespace Com.MyCompany.MyGame
             {
                 Debug.LogError("<Color=Red><a>Missing</a></Color> Beams Reference.", this);
             }
+
+            if (photonView.IsMine)
+            {
+                PlayerManager.localPlayerInstance = this.gameObject;
+            }
+
+            DontDestroyOnLoad(this.gameObject);
+        }
+
+        private void Start()
+        {
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+
+            if (playerUiPrefab != null)
+            {
+                Instantiate(playerUiPrefab).GetComponent<PlayerUI>().SetTarget(this);
+            }
+            else
+            {
+                Debug.LogWarning("<Color=Red><a>Missing</a></Color> PlayerUiPrefab reference on player Prefab.", this);
+            }
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+        {
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+            this.CalledOnLevelWasLoaded(scene.buildIndex);
+        }
+
+        private void CalledOnLevelWasLoaded(int sceneBuildIndex)
+        {
+            if(!Physics.Raycast(transform.position, -Vector3.up, 5f))
+            {
+                transform.position = new Vector3(0f, 5f, 0f);
+            }
+            Instantiate(playerUiPrefab).GetComponent<PlayerUI>().SetTarget(this);
         }
 
         /// <summary>
@@ -121,7 +179,15 @@ namespace Com.MyCompany.MyGame
             // we slowly affect health when beam is constantly hitting us, so player has to move to prevent death.
             Health -= 0.1f*Time.deltaTime;
         }
-#endregion
+
+        public event Action<PlayerManager, EventArgs> OnPlayerDeathEvent;
+
+        private void OnDestroy()
+        {
+            OnPlayerDeathEvent?.Invoke(this, EventArgs.Empty);
+        }
+
+        #endregion
 
 #region Public Method
 

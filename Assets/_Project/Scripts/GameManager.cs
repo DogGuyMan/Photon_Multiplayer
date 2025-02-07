@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,14 +15,53 @@ namespace Com.MyCompany.MyGame
     // 이를 위해 UI Button 필요, 또한, Photon 메서드를 호출하는 스크립트도 필요
     public class GameManager : MonoBehaviourPunCallbacks
     {
+
+        #region Static Field
+
         public static GameManager _instance;
         public static GameManager Instance => _instance;
+
+        #endregion
+
+        #region Serialzed Field
+
+        // 룸에 들어갔을 때 바로 인스턴스를 생성할 필요가 있으며,
+        // 우리가 경기장을 로드 했다는 것을 의미 하는 GameManager 스크립트 Start() 에서 할 수 있습니다.
+        [Tooltip("The prefab to use for representing the player")]
+        public GameObject playerPrefab;
+        DefaultPool punPrefabPool = PhotonNetwork.PrefabPool as DefaultPool;
+
+        #endregion
 
         #region Monobehaviour Callbacks
 
         private void Start()
         {
             _instance = this;
+            if (punPrefabPool.ResourceCache.TryAdd(playerPrefab.name, playerPrefab))
+            {
+                Debug.LogError("이미 존재하는 키입니다.");
+            }
+
+            if(playerPrefab == null) {
+                Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'",this);
+            }
+            else
+            {
+                Debug.LogFormat("We are Instantiating LocalPlayer from {0}", Application.loadedLevelName);
+                // 지금 룸에 들어와 있다면 캐릭터를 소환하기.
+                // PhotonNetwork.Instantiate 명령으로 인스턴시에이트 하면 Photon이 이 프리펩을 Sync 해줄 것이다.
+                if (PlayerManager.LocalPlayerInstance == null)
+                {
+                    Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+                    PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+                }
+                else
+                {
+                    Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
+                }
+
+            }
         }
 
         #endregion
