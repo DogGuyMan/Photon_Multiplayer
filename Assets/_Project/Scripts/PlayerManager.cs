@@ -8,9 +8,9 @@ using UnityEngine;
 namespace Com.MyCompany.MyGame
 {
     // PhotonView로 노출 시키기 위해 MonoBehaviourPunCallbacks 상속
-    public class PlayerManager : MonoBehaviourPunCallbacks
+    public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
     {
-        #region Private Fields
+#region Private Fields
 
         [Tooltip("The current Health of our player")]
         public float Health = 1f;
@@ -20,22 +20,37 @@ namespace Com.MyCompany.MyGame
         private GameObject beams;
         //True, when the user is firing
         bool IsFiring;
-        #endregion
+#endregion
 
-        #region MonoBehaviour CallBacks
+#region MonoBehaviour CallBacks
 
         /// <summary>
         /// MonoBehaviour method called on GameObject by Unity during early initialization phase.
         /// </summary>
         void Awake()
         {
-            if (beams == null)
+            //  photonView.IsMine이 true 이면 이 인스턴스를 따라가야 할 필요가 있다는 의미 입니다.
+            // 그래서 _cameraWork.OnStartFollowing() 를 호출 하여 신의 카메라가 바로 이 인스턴스를 따라 가도록 만듭니다.
+            CameraWork cameraWork = this.gameObject.GetComponent<CameraWork>();
+            if (cameraWork != null)
             {
-                Debug.LogError("<Color=Red><a>Missing</a></Color> Beams Reference.", this);
+                if(photonView.IsMine)
+                {
+                    cameraWork.OnStartFollowing();
+                }
             }
             else
             {
+                Debug.LogError("<Color=Red><a>Missing</a></Color> Camera Component on PlayerPrefab.", this);
+            }
+
+            if (beams != null)
+            {
                 beams.SetActive(false);
+            }
+            else
+            {
+                Debug.LogError("<Color=Red><a>Missing</a></Color> Beams Reference.", this);
             }
         }
 
@@ -44,6 +59,9 @@ namespace Com.MyCompany.MyGame
         /// </summary>
         void Update()
         {
+            // 다른 인스턴스들도 발사가 필요 합니다! 네트워크를 경유하여 발사를 동기화 해주는 메카니즘이 필요 합니다.
+            // 수동으로 IsFiring boolean 값을 동기화 할 것 입니다.
+            // 여기에서는 게임에 매우 특수한 것 값을 동기화 해야 하므로 이것을 커스텀 Observable을 구현해야한다.
             if (photonView.IsMine)
             {
                 ProcessInputs();
@@ -60,13 +78,14 @@ namespace Com.MyCompany.MyGame
             }
         }
 
+
         /// <summary>
         /// MonoBehaviour method called when the Collider 'other' enters the trigger.
         /// Affect Health of the Player if the collider is a beam
         /// Note: when jumping and firing at the same, you'll find that the player's own beam intersects with itself
         /// One could move the collider further away to prevent this or check if the beam belongs to the player.
         /// </summary>
-        void OnTriggerEnter(Collider other)
+        public void OnTriggerEnter(Collider other)
         {
             // PhotonView 가 Mine 이 아니면 메소드 초반부에서 빠져나왔기 때문입니다.
             if (!photonView.IsMine)
@@ -86,7 +105,7 @@ namespace Com.MyCompany.MyGame
         /// We're going to affect health while the beams are touching the player
         /// </summary>
         /// <param name="other">Other.</param>
-        void OnTriggerStay(Collider other)
+        public void OnTriggerStay(Collider other)
         {
             // we dont' do anything if we are not the local player.
             if (! photonView.IsMine)
@@ -102,15 +121,14 @@ namespace Com.MyCompany.MyGame
             // we slowly affect health when beam is constantly hitting us, so player has to move to prevent death.
             Health -= 0.1f*Time.deltaTime;
         }
+#endregion
 
-        #endregion
-
-        #region Custom
+#region Public Method
 
         /// <summary>
         /// Processes the inputs. Maintain a flag representing when the user is pressing Fire.
         /// </summary>
-        void ProcessInputs()
+        public void ProcessInputs()
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -128,6 +146,28 @@ namespace Com.MyCompany.MyGame
             }
         }
 
-        #endregion
+#endregion
+
+#region IPunObservable implementation
+
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+            if (stream.IsWriting)
+            {
+                // IsMine이 true인, 우리 자신의 플레이어라면,
+                // 다른 클라이언트에게 우리 데이터를 공유(동기화)할 수 있다.
+                stream.SendNext(IsFiring);
+                stream.SendNext(Health);
+            }
+            else
+            {
+                // 만약 IsMine이 false인, 다른 플레이어라면
+                // 다른 클라이언트로부터 데이터를 받아서 동기화 할 수 있다.
+                this.IsFiring = (bool)stream.ReceiveNext();
+                this.Health = (float)stream.ReceiveNext();
+            }
+        }
+
+#endregion
     }
 }

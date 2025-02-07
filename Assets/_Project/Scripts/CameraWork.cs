@@ -4,6 +4,7 @@ namespace Com.MyCompany.MyGame
 {
     public class CameraWork : MonoBehaviour
     {
+
 #region Private Fields
 
         [Tooltip("The distance in the local x-z plane to the target")]
@@ -58,11 +59,12 @@ namespace Com.MyCompany.MyGame
                 Follow();
             }
         }
+
 #endregion
 
 #region Public Methods
 
-        private void OnStartFollowing()
+        public void OnStartFollowing()
         {
             cameraTransform = Camera.main!.transform;
             isFollowing = true;
