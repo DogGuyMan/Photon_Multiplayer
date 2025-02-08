@@ -24,9 +24,9 @@ namespace Com.MyCompany.MyGame
         [Tooltip("Pixel offset from the player target")]
         [SerializeField]
         private Vector3 screenOffset = new Vector3(0f, 30f, 0f);
-        float characterControllerHeight = 0f;
-        Transform TargetTransform => target.transform;
-        Vector3 TargetPosition => target.transform.position;
+        private float characterControllerHeight = 0f;
+        Transform TargetTransform => target?.transform;
+        Vector3 TargetPosition => TargetTransform.position;
         PlayerManager target;
 
         private bool isInitialized = false;
@@ -83,7 +83,7 @@ namespace Com.MyCompany.MyGame
 
         private void Update()
         {
-            if (playerHealthSlider != null)
+            if (playerHealthSlider)
             {
                 playerHealthSlider.value = target.Health;
             }
@@ -91,7 +91,7 @@ namespace Com.MyCompany.MyGame
 
         private void LateUpdate()
         {
-            if (TargetTransform != null)
+            if (TargetTransform)
             {
                 // 월드의 좌표가 스크린에 표시되는 좌표로 변환됩니다.
                 this.transform.position = Camera.main.WorldToScreenPoint(TargetPosition) + screenOffset + characterControllerHeight * Vector3.up;
@@ -107,7 +107,6 @@ namespace Com.MyCompany.MyGame
             if (sender is PlayerManager)
             {
                 Destroy(this.gameObject);
-                return;
             }
         }
 

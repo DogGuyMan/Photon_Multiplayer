@@ -282,6 +282,7 @@ namespace IngameDebugConsole
 		[SerializeField]
 		private Image filterErrorButton;
 
+
 		[SerializeField]
 		private Text infoEntryCountText;
 		[SerializeField]
@@ -443,6 +444,12 @@ namespace IngameDebugConsole
 		private DebugLogLogcatListener logcatListener;
 #endif
 
+
+        [SerializeField]
+        private Button copyForcedButton;
+
+
+
 		private void Awake()
 		{
 			// Only one instance of debug console is allowed
@@ -547,6 +554,7 @@ namespace IngameDebugConsole
 			filterWarningButton.GetComponent<Button>().onClick.AddListener( FilterWarningButtonPressed );
 			filterErrorButton.GetComponent<Button>().onClick.AddListener( FilterErrorButtonPressed );
 			snapToBottomButton.GetComponent<Button>().onClick.AddListener( () => SnapToBottom = true );
+            copyForcedButton.GetComponent<Button>().onClick.AddListener(() => { GUIUtility.systemCopyBuffer = recycledListView.CopyFullLogs(); });
 
 			localTimeUtcOffset = System.DateTime.Now - System.DateTime.UtcNow;
 			dummyLogEntryTimestamp = new DebugLogEntryTimestamp();

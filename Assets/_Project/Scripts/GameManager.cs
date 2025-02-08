@@ -48,10 +48,9 @@ namespace Com.MyCompany.MyGame
             }
             else
             {
-                Debug.LogFormat("We are Instantiating LocalPlayer from {0}", Application.loadedLevelName);
                 // 지금 룸에 들어와 있다면 캐릭터를 소환하기.
                 // PhotonNetwork.Instantiate 명령으로 인스턴시에이트 하면 Photon이 이 프리펩을 Sync 해줄 것이다.
-                if (PlayerManager.LocalPlayerInstance == null)
+                if (PhotonNetwork.InRoom && PlayerManager.LocalPlayerInstance == null)
                 {
                     Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
                     PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
@@ -68,6 +67,16 @@ namespace Com.MyCompany.MyGame
 
         #region Photon Callbacks
 
+        public override void OnJoinedRoom()
+        {
+            // 이 함수는 MonovBehaviour가 생성되거나, 활성화 되지 않았을때 호출되지 않습니다.
+            // 따라서 이 함수는 Start() 함수 또한 로컬플레이어 캐릭터가 Network.Instantiate 되었을 때를 체크한다.
+            if (PlayerManager.LocalPlayerInstance == null)
+            {
+                Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+                PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+            }
+        }
 
         public override void OnLeftRoom()
         {

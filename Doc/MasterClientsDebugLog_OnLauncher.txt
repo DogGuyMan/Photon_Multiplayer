@@ -1,0 +1,32 @@
+Progress: 1012272986 0
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.TitleMain:OnProgress (int,single) (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/TitleMain.cs:58)
+Com.MyCompany.MyGame.Title.LoadLocalDataTitleTask:Initialize (Com.MyCompany.MyGame.Title.ProgressCallback) (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/Title/LoadLocalDataTitleTask.cs:22)
+Com.MyCompany.MyGame.TitleMain/<RunSubTasks>d__2:MoveNext () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/TitleMain.cs:51)
+Com.MyCompany.MyGame.TitleMain:RunSubTasks (System.Collections.Generic.IEnumerable`1<Com.MyCompany.MyGame.Title.ITitleTask>)
+Com.MyCompany.MyGame.TitleMain/<RunAllTasks>d__1:MoveNext () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/TitleMain.cs:40)
+Cysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<Com.MyCompany.MyGame.TitleMain/<RunAllTasks>d__1>:Run () (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/CompilerServices/StateMachineRunner.cs:189)
+Cysharp.Threading.Tasks.AwaiterActions:Continuation (object) (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/UniTask.cs:25)
+Cysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<Cysharp.Threading.Tasks.AsyncUnit>:TrySetResult (Cysharp.Threading.Tasks.AsyncUnit) (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/UniTaskCompletionSource.cs:139)
+Cysharp.Threading.Tasks.UniTask/NextFramePromise:MoveNext () (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/UniTask.Delay.cs:408)
+Cysharp.Threading.Tasks.Internal.PlayerLoopRunner:RunCore () (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/Internal/PlayerLoopRunner.cs:175)
+Cysharp.Threading.Tasks.Internal.PlayerLoopRunner:Update () (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/Internal/PlayerLoopRunner.cs:145)
+Cysharp.Threading.Tasks.Internal.PlayerLoopRunner:Run () (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/Internal/PlayerLoopRunner.cs:104)
+
+Progress: 1012272986 1
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.TitleMain:OnProgress (int,single) (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/TitleMain.cs:58)
+Com.MyCompany.MyGame.Title.LoadLocalDataTitleTask/<RunTask>d__5:MoveNext () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/Title/LoadLocalDataTitleTask.cs:37)
+Cysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<Com.MyCompany.MyGame.Title.LoadLocalDataTitleTask/<RunTask>d__5>:Run () (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/CompilerServices/StateMachineRunner.cs:189)
+Cysharp.Threading.Tasks.AwaiterActions:Continuation (object) (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/UniTask.cs:25)
+Cysharp.Threading.Tasks.UniTaskCompletionSourceCore`1<Cysharp.Threading.Tasks.AsyncUnit>:TrySetResult (Cysharp.Threading.Tasks.AsyncUnit) (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/UniTaskCompletionSource.cs:139)
+Cysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<Com.MyCompany.MyGame.PlayerDataModel/<LoadPlayerData>d__1>:SetResult () (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/CompilerServices/StateMachineRunner.cs:204)
+Com.MyCompany.MyGame.PlayerDataModel/<LoadPlayerData>d__1:MoveNext () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PlayerDataModel.cs:21)
+Cysharp.Threading.Tasks.CompilerServices.AsyncUniTask`1<Com.MyCompany.MyGame.PlayerDataModel/<LoadPlayerData>d__1>:Run () (at ./Library/PackageCache/com.cysharp.unitask@2.5.10/Runtime/CompilerServices/StateMachineRunner.cs:189)
+UnityEngine.UnitySynchronizationContext:ExecuteTasks () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/UnitySynchronizationContext.cs:107)
+
+PUN Basics Tutorial/Launcher: IsConnecting Setted False
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:set_IsConnecting (bool) (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:50)
+Com.MyCompany.MyGame.Launcher:Start () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:73)
+

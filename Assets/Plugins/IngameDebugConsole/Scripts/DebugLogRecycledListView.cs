@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -148,7 +149,20 @@ namespace IngameDebugConsole
 			}
 		}
 
-		public void RefreshCollapsedLogEntryCounts()
+        public string CopyFullLogs()
+        {
+            StringBuilder sb = new StringBuilder();
+            for( int i = 0; i < visibleLogItems.Count; i++ )
+            {
+                DebugLogItem logItem = visibleLogItems[i];
+                sb.Append(logItem.GetCopyContent());
+                sb.Append("\n");
+            }
+
+            return sb.ToString();
+        }
+
+        public void RefreshCollapsedLogEntryCounts()
 		{
 			for( int i = 0; i < visibleLogItems.Count; i++ )
 				visibleLogItems[i].ShowCount();

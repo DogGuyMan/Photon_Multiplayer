@@ -1,0 +1,103 @@
+PUN Basics Tutorial/Launcher: IsConnecting Setted True
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:set_IsConnecting (bool) (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:50)
+Com.MyCompany.MyGame.Launcher:Connect () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:88)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+PUN got region list. Going to ping minimum regions, based on this previous result summary: kr;7;asia,au,cae,eu,hk,in,jp,kr,ru,rue,sa,tr,uae,us,ussc,usw,za
+UnityEngine.Debug:Log (object)
+Photon.Pun.PhotonNetwork:OnOperation (ExitGames.Client.Photon.OperationResponse) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:2487)
+Photon.Realtime.LoadBalancingClient:OnOperationResponse (ExitGames.Client.Photon.OperationResponse) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3115)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:877)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+Region Pinging Result: kr[216.120.180.56:5055]: 6ms
+kr: 6 (7, 6, 6, 6, 7)
+Previous summary: kr;7;asia,au,cae,eu,hk,in,jp,kr,ru,rue,sa,tr,uae,us,ussc,usw,za
+UnityEngine.Debug:Log (object)
+Photon.Pun.PhotonNetwork:OnRegionsPinged (Photon.Realtime.RegionHandler) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:2525)
+Photon.Realtime.MonoBehaviourEmpty:Update () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/RegionHandler.cs:848)
+
+PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:OnConnectedToMaster () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:109)
+Photon.Realtime.ConnectionCallbacksContainer:OnConnectedToMaster () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:4335)
+Photon.Realtime.LoadBalancingClient:OnOperationResponse (ExitGames.Client.Photon.OperationResponse) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:2905)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:877)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+PUN Basics Tutorial/Launcher: IsConnecting Getted True
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:get_IsConnecting () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:45)
+Com.MyCompany.MyGame.Launcher:OnConnectedToMaster () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:110)
+Photon.Realtime.ConnectionCallbacksContainer:OnConnectedToMaster () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:4335)
+Photon.Realtime.LoadBalancingClient:OnOperationResponse (ExitGames.Client.Photon.OperationResponse) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:2905)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:877)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+PUN Basics Tutorial/Launcher: OnJoinRandomRoomFailed() was called by PUN. No random room available, so we create one.
+Calling: PhotonNetwork.CreateRoom
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:OnJoinRandomFailed (int16,string) (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:125)
+Photon.Realtime.MatchMakingCallbacksContainer:OnJoinRandomFailed (int16,string) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:4432)
+Photon.Realtime.LoadBalancingClient:CallbackRoomEnterFailed (ExitGames.Client.Photon.OperationResponse) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:2763)
+Photon.Realtime.LoadBalancingClient:OnOperationResponse (ExitGames.Client.Photon.OperationResponse) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3011)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:877)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:OnJoinedRoom () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:133)
+Photon.Realtime.MatchMakingCallbacksContainer:OnJoinedRoom () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:4412)
+Photon.Realtime.LoadBalancingClient:OnEvent (ExitGames.Client.Photon.EventData) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3442)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:904)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+We load the 'Room for 1'
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:OnJoinedRoom () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:136)
+Photon.Realtime.MatchMakingCallbacksContainer:OnJoinedRoom () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:4412)
+Photon.Realtime.LoadBalancingClient:OnEvent (ExitGames.Client.Photon.EventData) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3442)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:904)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+이미 존재하는 키입니다.
+UnityEngine.Debug:LogError (object)
+Com.MyCompany.MyGame.GameManager:Start () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/GameManager.cs:43)
+
+We are Instantiating LocalPlayer from Room for 1
+UnityEngine.Debug:LogFormat (string,object[])
+Com.MyCompany.MyGame.GameManager:Start () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/GameManager.cs:51)
+
+We are Instantiating LocalPlayer from Room for 1
+UnityEngine.Debug:LogFormat (string,object[])
+Com.MyCompany.MyGame.GameManager:Start () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/GameManager.cs:56)
+
+Registered PhotonView: 1001
+UnityEngine.Debug:Log (object)
+Photon.Pun.PhotonNetwork:RegisterPhotonView (Photon.Pun.PhotonView) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:1027)
+Photon.Pun.PhotonView:set_ViewID (int) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonView.cs:319)
+Photon.Pun.PhotonNetwork:NetworkInstantiate (Photon.Pun.InstantiateParameters,bool,bool) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetwork.cs:2638)
+Photon.Pun.PhotonNetwork:Instantiate (string,UnityEngine.Vector3,UnityEngine.Quaternion,byte,object[]) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetwork.cs:2481)
+Com.MyCompany.MyGame.GameManager:Start () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/GameManager.cs:57)
+
+
+---

@@ -1,0 +1,3 @@
+NullReferenceException
+Com.MyCompany.MyGame.PlayerUI.get_TargetTransform () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PlayerUI.cs:28)
+Com.MyCompany.MyGame.PlayerUI.LateUpdate () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PlayerUI.cs:94)

@@ -1,0 +1,117 @@
+Received OnSerialization for view ID 2001. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Joined
+UnityEngine.Debug:LogWarning (object)
+Photon.Pun.PhotonNetwork:OnSerializeRead (object[],Photon.Realtime.Player,int,int16) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:1808)
+Photon.Pun.PhotonNetwork:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:2237)
+Photon.Realtime.LoadBalancingClient:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3568)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:904)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+Received OnSerialization for view ID 2001. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Joined
+UnityEngine.Debug:LogWarning (object)
+Photon.Pun.PhotonNetwork:OnSerializeRead (object[],Photon.Realtime.Player,int,int16) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:1808)
+Photon.Pun.PhotonNetwork:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:2237)
+Photon.Realtime.LoadBalancingClient:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3568)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:904)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+Received OnSerialization for view ID 2001. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Joined
+UnityEngine.Debug:LogWarning (object)
+Photon.Pun.PhotonNetwork:OnSerializeRead (object[],Photon.Realtime.Player,int,int16) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:1808)
+Photon.Pun.PhotonNetwork:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:2237)
+Photon.Realtime.LoadBalancingClient:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3568)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:904)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+Received OnSerialization for view ID 2001. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Joined
+UnityEngine.Debug:LogWarning (object)
+Photon.Pun.PhotonNetwork:OnSerializeRead (object[],Photon.Realtime.Player,int,int16) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:1808)
+Photon.Pun.PhotonNetwork:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:2237)
+Photon.Realtime.LoadBalancingClient:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3568)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:904)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+Received OnSerialization for view ID 2001. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Joined
+UnityEngine.Debug:LogWarning (object)
+Photon.Pun.PhotonNetwork:OnSerializeRead (object[],Photon.Realtime.Player,int,int16) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:1808)
+Photon.Pun.PhotonNetwork:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:2237)
+Photon.Realtime.LoadBalancingClient:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3568)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:904)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+Received OnSerialization for view ID 2001. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Joined
+UnityEngine.Debug:LogWarning (object)
+Photon.Pun.PhotonNetwork:OnSerializeRead (object[],Photon.Realtime.Player,int,int16) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:1808)
+Photon.Pun.PhotonNetwork:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:2237)
+Photon.Realtime.LoadBalancingClient:OnEvent (ExitGames.Client.Photon.EventData) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3568)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:904)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+Network destroy Instantiated GO: My Robot Kyle(Clone)
+UnityEngine.Debug:Log (object)
+Photon.Pun.PhotonNetwork:RemoveInstantiatedGO (UnityEngine.GameObject,bool) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:856)
+Photon.Pun.PhotonNetwork:LocalCleanupAnythingInstantiated (bool) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:314)
+Photon.Pun.PhotonNetwork:LeftRoomCleanup () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:278)
+Photon.Pun.PhotonNetwork:OnClientStateChanged (Photon.Realtime.ClientState,Photon.Realtime.ClientState) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:2508)
+Photon.Realtime.LoadBalancingClient:set_State (Photon.Realtime.ClientState) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:486)
+Photon.Realtime.LoadBalancingClient:DisconnectToReconnect () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:1425)
+Photon.Realtime.LoadBalancingClient:OnOperationResponse (ExitGames.Client.Photon.OperationResponse) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3072)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:877)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+NullReferenceException
+Com.MyCompany.MyGame.PlayerUI.PlayerDeathHandler (System.Object sender, System.EventArgs e) (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PlayerUI.cs:109)
+Com.MyCompany.MyGame.PlayerManager.OnDestroy () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PlayerManager.cs:187)
+
+NullReferenceException
+Com.MyCompany.MyGame.PlayerUI.get_TargetTransform () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PlayerUI.cs:28)
+Com.MyCompany.MyGame.PlayerUI.LateUpdate () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PlayerUI.cs:94)
+
+PUN Basics Tutorial/Launcher: IsConnecting Setted False
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:set_IsConnecting (bool) (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:50)
+Com.MyCompany.MyGame.Launcher:Start () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:73)
+
+PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:OnConnectedToMaster () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:109)
+Photon.Realtime.ConnectionCallbacksContainer:OnConnectedToMaster () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:4335)
+Photon.Realtime.LoadBalancingClient:OnOperationResponse (ExitGames.Client.Photon.OperationResponse) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:2905)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:877)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+PUN Basics Tutorial/Launcher: IsConnecting Getted False
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:get_IsConnecting () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:45)
+Com.MyCompany.MyGame.Launcher:OnConnectedToMaster () (at UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:110)
+Photon.Realtime.ConnectionCallbacksContainer:OnConnectedToMaster () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:4335)
+Photon.Realtime.LoadBalancingClient:OnOperationResponse (ExitGames.Client.Photon.OperationResponse) (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:2905)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback (ExitGames.Client.Photon.StreamBuffer) (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:877)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:595)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+

@@ -1,0 +1,137 @@
+PUN Basics Tutorial/Launcher: Connect() was called by PUN
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:Connect () (at /UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:87)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+PUN Basics Tutorial/Launcher: IsConnecting Setted True
+UnityEngine.Debug:Log (object)
+Com.MyCompany.MyGame.Launcher:set_IsConnecting (bool) (at /UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:50)
+Com.MyCompany.MyGame.Launcher:Connect () (at /UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:88)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Connection lost. OnStatusChanged to TimeoutDisconnect. Client state was: ConnectingToNameServer. SCS v0 UDP SocketErrorCode: 0 AppOutOfFocus WinSock
+UnityEngine.Debug:LogError (object)
+Photon.Realtime.LoadBalancingClient:DebugReturn (ExitGames.Client.Photon.DebugLevel,string) (at /UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:2732)
+Photon.Realtime.LoadBalancingClient:OnStatusChanged (ExitGames.Client.Photon.StatusCode) (at /UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3352)
+ExitGames.Client.Photon.PeerBase/<>c__DisplayClass109_0:<EnqueueStatusCallback>b__0 () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:1193)
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/EnetPeer.cs:469)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+AsyncConnectAndReceive() caught exception on wss://ns.photonengine.io:443//?libversion=4.1.8.13&sid=30&app=2343bc6d-d46e-4bb2-96cc-16b2ea17e7b9: System.AggregateException: One or more errors occurred. (Unable to connect to the remote server) ---> System.Net.WebSockets.WebSocketException: Unable to connect to the remote server ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer. ---> System.Net.Sockets.SocketException: Connection reset by peer
+   --- End of inner exception stack trace ---
+  at System.Net.Sockets.Socket+AwaitableSocketAsyncEventArgs.ThrowException (System.Net.Sockets.SocketError error) [0x00007] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.Sockets.Socket+AwaitableSocketAsyncEventArgs.GetResult (System.Int16 token) [0x00022] in <03987742539642828d869334a9b28b43>:0
+  at System.Threading.Tasks.ValueTask`1+ValueTaskSourceAsTask+<>c[TResult].<.cctor>b__4_0 (System.Object state) [0x00030] in <e307bbb467104258887a104f6151f183>:0
+--- End of stack trace from previous location where exception was thrown ---
+
+  at Mono.Net.Security.MobileAuthenticatedStream.InnerRead (System.Boolean sync, System.Int32 requestedSize, System.Threading.CancellationToken cancellationToken) [0x00104] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.InnerRead (System.Threading.CancellationToken cancellationToken) [0x000ac] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.ProcessOperation (System.Threading.CancellationToken cancellationToken) [0x00093] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.StartOperation (System.Threading.CancellationToken cancellationToken) [0x0008b] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.MobileAuthenticatedStream.ProcessAuthentication (System.Boolean runSynchronously, Mono.Net.Security.MonoSslAuthenticationOptions options, System.Threading.CancellationToken cancellationToken) [0x00262] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.WebSockets.WebSocketHandle.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken, System.Net.WebSockets.ClientWebSocketOptions options) [0x00199] in <03987742539642828d869334a9b28b43>:0
+   --- End of inner exception stack trace ---
+  at System.Net.WebSockets.WebSocketHandle.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken, System.Net.WebSockets.ClientWebSocketOptions options) [0x00391] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.WebSockets.ClientWebSocket.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken) [0x000d1] in <03987742539642828d869334a9b28b43>:0
+   --- End of inner exception stack trace ---
+  at System.Threading.Tasks.Task.ThrowIfExceptional (System.Boolean includeTaskCanceledExceptions) [0x00011] in <e307bbb467104258887a104f6151f183>:0
+  at System.Threading.Tasks.Task.Wait (System.Int32 millisecondsTimeout, System.Threading.CancellationToken cancellationToken) [0x00043] in <e307bbb467104258887a104f6151f183>:0
+  at System.Threading.Tasks.Task.Wait () [0x00000] in <e307bbb467104258887a104f6151f183>:0
+  at ExitGames.Client.Photon.PhotonClientWebSocket.AsyncConnectAndReceive () [0x0015d] in D:\Dev\Work\photon-dotnet-sdk\PhotonDotNet\PhotonClientWebSocket.cs:92
+---> (Inner Exception #0) System.Net.WebSockets.WebSocketException (0x80004005): Unable to connect to the remote server ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer. ---> System.Net.Sockets.SocketException: Connection reset by peer
+   --- End of inner exception stack trace ---
+  at System.Net.Sockets.Socket+AwaitableSocketAsyncEventArgs.ThrowException (System.Net.Sockets.SocketError error) [0x00007] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.Sockets.Socket+AwaitableSocketAsyncEventArgs.GetResult (System.Int16 token) [0x00022] in <03987742539642828d869334a9b28b43>:0
+  at System.Threading.Tasks.ValueTask`1+ValueTaskSourceAsTask+<>c[TResult].<.cctor>b__4_0 (System.Object state) [0x00030] in <e307bbb467104258887a104f6151f183>:0
+--- End of stack trace from previous location where exception was thrown ---
+
+  at Mono.Net.Security.MobileAuthenticatedStream.InnerRead (System.Boolean sync, System.Int32 requestedSize, System.Threading.CancellationToken cancellationToken) [0x00104] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.InnerRead (System.Threading.CancellationToken cancellationToken) [0x000ac] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.ProcessOperation (System.Threading.CancellationToken cancellationToken) [0x00093] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.StartOperation (System.Threading.CancellationToken cancellationToken) [0x0008b] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.MobileAuthenticatedStream.ProcessAuthentication (System.Boolean runSynchronously, Mono.Net.Security.MonoSslAuthenticationOptions options, System.Threading.CancellationToken cancellationToken) [0x00262] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.WebSockets.WebSocketHandle.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken, System.Net.WebSockets.ClientWebSocketOptions options) [0x00199] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.WebSockets.WebSocketHandle.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken, System.Net.WebSockets.ClientWebSocketOptions options) [0x00391] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.WebSockets.ClientWebSocket.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken) [0x000d1] in <03987742539642828d869334a9b28b43>:0 <---
+
+UnityEngine.Debug:LogError (object)
+Photon.Realtime.LoadBalancingClient:DebugReturn (ExitGames.Client.Photon.DebugLevel,string) (at /UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:2732)
+ExitGames.Client.Photon.PeerBase/<>c__DisplayClass108_0:<EnqueueDebugReturn>b__0 () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:1185)
+ExitGames.Client.Photon.TPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/TPeer.cs:261)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+ClientWebSocket IsFaulted: System.AggregateException: One or more errors occurred. (Unable to connect to the remote server) ---> System.Net.WebSockets.WebSocketException: Unable to connect to the remote server ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer. ---> System.Net.Sockets.SocketException: Connection reset by peer
+   --- End of inner exception stack trace ---
+  at System.Net.Sockets.Socket+AwaitableSocketAsyncEventArgs.ThrowException (System.Net.Sockets.SocketError error) [0x00007] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.Sockets.Socket+AwaitableSocketAsyncEventArgs.GetResult (System.Int16 token) [0x00022] in <03987742539642828d869334a9b28b43>:0
+  at System.Threading.Tasks.ValueTask`1+ValueTaskSourceAsTask+<>c[TResult].<.cctor>b__4_0 (System.Object state) [0x00030] in <e307bbb467104258887a104f6151f183>:0
+--- End of stack trace from previous location where exception was thrown ---
+
+  at Mono.Net.Security.MobileAuthenticatedStream.InnerRead (System.Boolean sync, System.Int32 requestedSize, System.Threading.CancellationToken cancellationToken) [0x00104] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.InnerRead (System.Threading.CancellationToken cancellationToken) [0x000ac] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.ProcessOperation (System.Threading.CancellationToken cancellationToken) [0x00093] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.StartOperation (System.Threading.CancellationToken cancellationToken) [0x0008b] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.MobileAuthenticatedStream.ProcessAuthentication (System.Boolean runSynchronously, Mono.Net.Security.MonoSslAuthenticationOptions options, System.Threading.CancellationToken cancellationToken) [0x00262] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.WebSockets.WebSocketHandle.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken, System.Net.WebSockets.ClientWebSocketOptions options) [0x00199] in <03987742539642828d869334a9b28b43>:0
+   --- End of inner exception stack trace ---
+  at System.Net.WebSockets.WebSocketHandle.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken, System.Net.WebSockets.ClientWebSocketOptions options) [0x00391] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.WebSockets.ClientWebSocket.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken) [0x000d1] in <03987742539642828d869334a9b28b43>:0
+   --- End of inner exception stack trace ---
+---> (Inner Exception #0) System.Net.WebSockets.WebSocketException (0x80004005): Unable to connect to the remote server ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer. ---> System.Net.Sockets.SocketException: Connection reset by peer
+   --- End of inner exception stack trace ---
+  at System.Net.Sockets.Socket+AwaitableSocketAsyncEventArgs.ThrowException (System.Net.Sockets.SocketError error) [0x00007] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.Sockets.Socket+AwaitableSocketAsyncEventArgs.GetResult (System.Int16 token) [0x00022] in <03987742539642828d869334a9b28b43>:0
+  at System.Threading.Tasks.ValueTask`1+ValueTaskSourceAsTask+<>c[TResult].<.cctor>b__4_0 (System.Object state) [0x00030] in <e307bbb467104258887a104f6151f183>:0
+--- End of stack trace from previous location where exception was thrown ---
+
+  at Mono.Net.Security.MobileAuthenticatedStream.InnerRead (System.Boolean sync, System.Int32 requestedSize, System.Threading.CancellationToken cancellationToken) [0x00104] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.InnerRead (System.Threading.CancellationToken cancellationToken) [0x000ac] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.ProcessOperation (System.Threading.CancellationToken cancellationToken) [0x00093] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.AsyncProtocolRequest.StartOperation (System.Threading.CancellationToken cancellationToken) [0x0008b] in <03987742539642828d869334a9b28b43>:0
+  at Mono.Net.Security.MobileAuthenticatedStream.ProcessAuthentication (System.Boolean runSynchronously, Mono.Net.Security.MonoSslAuthenticationOptions options, System.Threading.CancellationToken cancellationToken) [0x00262] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.WebSockets.WebSocketHandle.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken, System.Net.WebSockets.ClientWebSocketOptions options) [0x00199] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.WebSockets.WebSocketHandle.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken, System.Net.WebSockets.ClientWebSocketOptions options) [0x00391] in <03987742539642828d869334a9b28b43>:0
+  at System.Net.WebSockets.ClientWebSocket.ConnectAsyncCore (System.Uri uri, System.Threading.CancellationToken cancellationToken) [0x000d1] in <03987742539642828d869334a9b28b43>:0 <---
+
+UnityEngine.Debug:LogError (object)
+Photon.Realtime.LoadBalancingClient:DebugReturn (ExitGames.Client.Photon.DebugLevel,string) (at /UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:2732)
+ExitGames.Client.Photon.PeerBase/<>c__DisplayClass108_0:<EnqueueDebugReturn>b__0 () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:1185)
+ExitGames.Client.Photon.TPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/TPeer.cs:261)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+ClientWebSocket is not open. State: Closed CloseStatus:  Description:
+UnityEngine.Debug:LogError (object)
+Photon.Realtime.LoadBalancingClient:DebugReturn (ExitGames.Client.Photon.DebugLevel,string) (at /UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:2732)
+ExitGames.Client.Photon.PeerBase/<>c__DisplayClass108_0:<EnqueueDebugReturn>b__0 () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:1185)
+ExitGames.Client.Photon.TPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/TPeer.cs:261)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+Connection lost. OnStatusChanged to ExceptionOnConnect. Client state was: ConnectingToNameServer. SCS v0 WSS SocketErrorCode: 0 AppOutOfFocus WinSock
+UnityEngine.Debug:LogError (object)
+Photon.Realtime.LoadBalancingClient:DebugReturn (ExitGames.Client.Photon.DebugLevel,string) (at /UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:2732)
+Photon.Realtime.LoadBalancingClient:OnStatusChanged (ExitGames.Client.Photon.StatusCode) (at /UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3315)
+ExitGames.Client.Photon.PeerBase/<>c__DisplayClass109_0:<EnqueueStatusCallback>b__0 () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:1193)
+ExitGames.Client.Photon.TPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/TPeer.cs:261)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+
+PUN Basics Tutorial/Launcher: OnDisconnected() was called by PUN with reason ExceptionOnConnect
+UnityEngine.Debug:LogWarningFormat (string,object[])
+Com.MyCompany.MyGame.Launcher:OnDisconnected (Photon.Realtime.DisconnectCause) (at /UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:120)
+Photon.Realtime.ConnectionCallbacksContainer:OnDisconnected (Photon.Realtime.DisconnectCause) (at /UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:4355)
+Photon.Realtime.LoadBalancingClient:OnStatusChanged (ExitGames.Client.Photon.StatusCode) (at /UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:3261)
+ExitGames.Client.Photon.PeerBase/<>c__DisplayClass109_0:<EnqueueStatusCallback>b__0 () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PeerBase.cs:1193)
+ExitGames.Client.Photon.TPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/TPeer.cs:261)
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands () (at D:/Dev/Work/photon-dotnet-sdk/PhotonDotNet/PhotonPeer.cs:1779)
+Photon.Pun.PhotonHandler:Dispatch () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:236)
+Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
+

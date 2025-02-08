@@ -241,7 +241,7 @@ namespace IngameDebugConsole
 #endif
 		}
 
-		internal string GetCopyContent()
+		public string GetCopyContent()
 		{
 			if( !logEntryTimestamp.HasValue )
 				return logEntry.ToString();
