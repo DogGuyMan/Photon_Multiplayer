@@ -104,8 +104,6 @@ namespace Com.MyCompany.MyGame
 
 #region MonoBehaviourPunCallbacks Callbacks
 
-
-
         public override void OnConnectedToMaster()
         {
             Debug.Log("PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN");
