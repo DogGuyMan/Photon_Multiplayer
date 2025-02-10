@@ -1,64 +1,3 @@
----
-ebook:
-  theme: one-dark.css
-  title: Photon
-  authors: Escatrgot
-  disable-font-rescaling: true
-  margin: [0.1, 0.1, 0.1, 0.1]
----
-<style>
-        h2:not(.tit) { border-top: 12px solid #143666; border-left: 5px solid #143666; border-right: 5px solid #143666; background-color: #143666; color: #FFF !important; font-weight: bold;}
-
-    h3:not(.tit) { border-top: 3px solid #004480; border: 2px solid #004480; background-color: #004480; color: #FFF !important;}
-
-
-    h4:not(.tit) { font-weight: bold; color: #FFF !important; }
-
-    summary { cursor:pointer; font-weight:bold; color : #0F0 !important;}
-
-    .red{color: #d93d3d;}
-    .darkred{color: #470909;}
-    .orange{color: #cf6d1d;}
-    .yellow{color: #DD3;}
-    .green{color: #25ba00;}
-    .blue{color: #169ae0;}
-    .pink{color: #d10fd1;}
-    .dim{color : #666666;}
-    .lime{color : #addb40;}
-    
-    .container {
-        display : flex; 
-        flex-direction:row;
-        align-items:center;
-    }
-    .item {
-        margin-right:2%;
-    }
-
-    @media screen and (min-width:1001px){
-        .container {
-            width: 90%;
-            flex-wrap : nowrap;
-            justify-content:center;
-        }
-    }
-    
-    @media screen and (max-width:1000px){
-        .container {
-            width: 98%;
-            flex-wrap : nowrap;
-            justify-content:center;
-        }
-    }
-    
-    @media screen and (max-width:799px){
-        .container {
-            justify-content:left;
-            flex-wrap : wrap;
-        }
-    }
-
-</style>
 
 ## 🔄 Photon 소개
 
@@ -72,7 +11,7 @@ ebook:
 4. LoadBalancing API & RPC API 제공
 5. Shared Room 방식의 토폴로지만 제공
 
-### 📄 1. 연결과 콜백
+> ### 📄  1. 연결과 콜백
 
 
 #### 1). 연결 
@@ -114,7 +53,7 @@ ebook:
 * `IPunInstantiateMagicCallback`: PUN 프리팹의 인스턴스화에 대한 단일 콜백.
 * `IPunObservable`: PhotonView 직렬화 콜백.
 
-### 📄 2. 매치 메이킹
+> ### 📄  2. 매치 메이킹
 
 * 룸 생성, 룸 참여, 룸 게임 시작
 * 서버는 클라이언트에서 요청한 무작위 룸을 선택해야 한다.
@@ -148,7 +87,7 @@ ebook:
 * `IMatchmakingCallbacks.OnJoinRandomFailed` 형식으로 콜백
 ##### `RoomOptions`
 
-### 📄 3. 게임 로직
+> ### 📄  3. 게임 로직
 
 
 #### 1). 네트워크 객체 : `PhotonView Componenet`
@@ -218,7 +157,7 @@ ebook:
 
 ## 🔄 Photon 호스팅
 
-### 📄 1. 호스팅 - SaaS PhotonCloud (LoadBalancing, MMO, Lite)
+> ### 📄  1. 호스팅 - SaaS PhotonCloud (LoadBalancing, MMO, Lite)
 
 #### 1). PUN 클라이언트는 클라우드에 연결해야한다.
 
@@ -229,13 +168,13 @@ ebook:
 * 기본 전송 프로토콜은 UDP 임
 * WebSocket 같은 경우 일부 플랫폼에서 유일하게 지원되는 프로토콜이다.
 
-### 📄 2. 일반 사항
+> ### 📄  2. 일반 사항
 
 #### 1). `PhotonView` 컴포넌트를 통해 게임 객체를 쉽게 네트워크로 연결할 수 있음
 #### 2). 인증
 * Photon은 게임 타이틀에서 사용해야 하는 커뮤니티 백엔드를 통합하기 위해 아주 간단한 REST API를 사용
 
-### 📄 3. 성능 옵션
+> ### 📄  3. 성능 옵션
 #### 1). Pooling 지원
 * 모든 네트워크 개체에 대해 풀 구현을 사용할 수 있음.
 
@@ -249,7 +188,7 @@ ebook:
 * PUN은 네트워크 개체에서 업데이트 쓰기(그리고 읽기) 속도를 제어할 수 있음.
 * 메시지를 넣어 어떤 업데이트에 보낼지에 대한 속도는, 독립적으로 설정가능
 
-### 📄 4. 자체 호스팅 - 온프레미스
+> ### 📄  4. 자체 호스팅 - 온프레미스
 #### 1). PhotonServerSettings
 * **네임서버 체크 해제 & 고정 지역 지우기**
 * "Server" 세팅에 기입할 값을

@@ -1,69 +1,9 @@
----
-ebook:
-  theme: one-dark.css
-  title: Photon
-  authors: Escatrgot
-  disable-font-rescaling: true
-  margin: [0.1, 0.1, 0.1, 0.1]
----
-<style>
-        h2:not(.tit) { border-top: 12px solid #143666; border-left: 5px solid #143666; border-right: 5px solid #143666; background-color: #143666; color: #FFF !important; font-weight: bold;}
 
-    h3:not(.tit) { border-top: 3px solid #004480; border: 2px solid #004480; background-color: #004480; color: #FFF !important;}
-
-
-    h4:not(.tit) { font-weight: bold; color: #FFF !important; }
-
-    summary { cursor:pointer; font-weight:bold; color : #0F0 !important;}
-
-    .red{color: #d93d3d;}
-    .darkred{color: #470909;}
-    .orange{color: #cf6d1d;}
-    .yellow{color: #DD3;}
-    .green{color: #25ba00;}
-    .blue{color: #169ae0;}
-    .pink{color: #d10fd1;}
-    .dim{color : #666666;}
-    .lime{color : #addb40;}
-    
-    .container {
-        display : flex; 
-        flex-direction:row;
-        align-items:center;
-    }
-    .item {
-        margin-right:2%;
-    }
-
-    @media screen and (min-width:1001px){
-        .container {
-            width: 90%;
-            flex-wrap : nowrap;
-            justify-content:center;
-        }
-    }
-    
-    @media screen and (max-width:1000px){
-        .container {
-            width: 98%;
-            flex-wrap : nowrap;
-            justify-content:center;
-        }
-    }
-    
-    @media screen and (max-width:799px){
-        .container {
-            justify-content:left;
-            flex-wrap : wrap;
-        }
-    }
-
-</style>
 
 ## 🔄 게임 씬과 룸(레벨)
 
 
-### 📄 1. Chat
+> ### 📄  1. Chat
 
 #### 실시간 채팅 기능을 통합하도록 기능을 제공
 
@@ -73,7 +13,7 @@ ebook:
 
 ---
 
-### 📄 2. Pun
+> ### 📄  2. Pun
 
 #### 네트워크 오브젝트 관리, 동기화 등등 클라이언트 사이드에 툴을 제공
 
@@ -88,7 +28,7 @@ ebook:
 
 ---
 
-### 📄 3. Realtime
+> ### 📄  3. Realtime
 
 #### 서버 관련 네임 스페이스로 네트워크 초기 연결과 인증, 방 관리, 이벤트 처리 기능 제공
 

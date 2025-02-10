@@ -1,68 +1,7 @@
----
-ebook:
-  theme: one-dark.css
-  title: Photon
-  authors: Escatrgot
-  disable-font-rescaling: true
-  margin: [0.1, 0.1, 0.1, 0.1]
----
-<style>
-        h2:not(.tit) { border-top: 12px solid #143666; border-left: 5px solid #143666; border-right: 5px solid #143666; background-color: #143666; color: #FFF !important; font-weight: bold;}
-
-    h3:not(.tit) { border-top: 3px solid #004480; border: 2px solid #004480; background-color: #004480; color: #FFF !important;}
-
-
-    h4:not(.tit) { font-weight: bold; color: #FFF !important; }
-
-    summary { cursor:pointer; font-weight:bold; color : #0F0 !important;}
-
-    .red{color: #d93d3d;}
-    .darkred{color: #470909;}
-    .orange{color: #cf6d1d;}
-    .yellow{color: #DD3;}
-    .green{color: #25ba00;}
-    .blue{color: #169ae0;}
-    .pink{color: #d10fd1;}
-    .dim{color : #666666;}
-    .lime{color : #addb40;}
-    
-    .container {
-        display : flex; 
-        flex-direction:row;
-        align-items:center;
-    }
-    .item {
-        margin-right:2%;
-    }
-
-    @media screen and (min-width:1001px){
-        .container {
-            width: 90%;
-            flex-wrap : nowrap;
-            justify-content:center;
-        }
-    }
-    
-    @media screen and (max-width:1000px){
-        .container {
-            width: 98%;
-            flex-wrap : nowrap;
-            justify-content:center;
-        }
-    }
-    
-    @media screen and (max-width:799px){
-        .container {
-            justify-content:left;
-            flex-wrap : wrap;
-        }
-    }
-
-</style>
 
 ## 🔄 PhotonNetwork의 정적 변수들
 
-### 📄 1. 서버 세팅
+> ### 📄  1. 서버 세팅
 
 #### 1). `ServerSettings PhotonNetwork.PhotonServerSettings[get]`
 #### 2). `PhotonNetwork.OfflineMode[get, set]`
@@ -94,7 +33,7 @@ ebook:
 
 ---
 
-### 📄 2. 네트워크 연결
+> ### 📄  2. 네트워크 연결
 
 #### 1). `PhotonNetwork.IsConnected`
 
@@ -105,7 +44,7 @@ ebook:
 
 ---
 
-### 📄 3. 클라이언트 유저 / 플레이어
+> ### 📄  3. 클라이언트 유저 / 플레이어
 
 #### 1). `bool PhotonNetwork.IsMasterClient`
 
@@ -140,7 +79,7 @@ ebook:
 
 ---
 
-### 📄 4. 룸
+> ### 📄  4. 룸
 
 #### 1). `Room? PhotonNetwork.CurrentRoom`
 
@@ -168,7 +107,7 @@ ebook:
 
 ---
 
-### 📄 5. 로비
+> ### 📄  5. 로비
 
 #### 1). `TypedLobby PhotonNetwork.CurrentLobby`
 
@@ -181,7 +120,7 @@ ebook:
 
 ---
 
-### 📄 6. Time
+> ### 📄  6. Time
 
 #### 1). `double PhotonNetwork.Time`
 
@@ -198,7 +137,7 @@ ebook:
 
 --- 
 
-### 📄 7. Utility
+> ### 📄  7. Utility
 
 #### 1). `PhotonNetwork.PrefabPool`
 
@@ -214,7 +153,7 @@ ebook:
 
 ---
 
-### 📄 8. PhotonView
+> ### 📄  8. PhotonView
 
 #### 1). [`PhotonNetwork.PhotonView`](https://doc-api.photonengine.com/en/pun/current/class_photon_1_1_pun_1_1_photon_view.html)
 
