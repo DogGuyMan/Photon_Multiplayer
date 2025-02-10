@@ -72,7 +72,6 @@ ebook:
 4. LoadBalancing API & RPC API 제공
 5. Shared Room 방식의 토폴로지만 제공
 
-
 ### 📄 1. 연결과 콜백
 
 
@@ -219,8 +218,10 @@ ebook:
 
 ## 🔄 Photon 호스팅
 
-### 📄 1. 호스팅
+### 📄 1. 호스팅 - SaaS PhotonCloud (LoadBalancing, MMO, Lite)
+
 #### 1). PUN 클라이언트는 클라우드에 연결해야한다.
+
 #### 2). 최적지역
 * 동일한 네트워크에 연결된 클라이언트라 하더라도, 서로 다른 지역으로 연결 되기도 한다.
 * 온라인 지역 화이트 리스트를 사용하여 지역을 지정해 접속할 수 있다.
@@ -247,6 +248,18 @@ ebook:
 
 * PUN은 네트워크 개체에서 업데이트 쓰기(그리고 읽기) 속도를 제어할 수 있음.
 * 메시지를 넣어 어떤 업데이트에 보낼지에 대한 속도는, 독립적으로 설정가능
+
+### 📄 4. 자체 호스팅 - 온프레미스
+#### 1). PhotonServerSettings
+* **네임서버 체크 해제 & 고정 지역 지우기**
+* "Server" 세팅에 기입할 값을
+  * IP (스탠드얼론 빌드이면 "localhost" 또는 127.0.0.1)
+  * 포톤 서버의 호스트 명
+
+#### 2). 수동 연결
+* 두가지가 필요하다.
+    1. **masterServerAddress** : On-Premises DNS명 또는 IP, 
+    2. **port** 
 
 ---
 
@@ -292,16 +305,3 @@ iOS용 게임을 개발한다면 "PUN 과 IPv6" 그리고 "IPv6 에서 Photon Se
     * 룸 내의 다른 클라이언트 상의 메소드를 호출 할 수 있도록 해줍니다.
     * PUN은 이러한 방법의 목록을 "PhotonServerSettings.Asset" 에 보관하며 
     RPC를 호출할 때 각 이름의 인덱스를 약어로 사용합니다.
-
-### 📄 자체 호스팅
-
-#### 1). PhotonServerSettings
-* **네임서버 체크 해제 & 고정 지역 지우기**
-* "Server" 세팅에 기입할 값을
-  * IP (스탠드얼론 빌드이면 "localhost" 또는 127.0.0.1)
-  * 포톤 서버의 호스트 명
-
-#### 2). 수동 연결
-* 두가지가 필요하다.
-    1. **masterServerAddress** : On-Premises DNS명 또는 IP, 
-    2. **port** 
