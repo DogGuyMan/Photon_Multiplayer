@@ -93,16 +93,12 @@ namespace Com.MyCompany.MyGame
             {
                 PhotonNetwork.JoinRandomRoom();
             }
-            else
-            {
-                PhotonNetwork.GameVersion = gameVersion;
-                PhotonNetwork.ConnectUsingSettings(); // 이때가 바로 Photon Cloud에 연결되는 시작 지점이다.
-            }
         }
 
 #endregion
 
 #region MonoBehaviourPunCallbacks Callbacks
+
 
         public override void OnConnectedToMaster()
         {

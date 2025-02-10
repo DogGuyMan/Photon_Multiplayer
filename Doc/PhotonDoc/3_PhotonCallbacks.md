@@ -74,7 +74,7 @@ ebook:
         하지만 일반적으로 `OnDisconnected()`에서 체크하는게 대부분이다.
 * ##### b. ⭐️ `IConnectionCallbacks.OnConnectedToMaster()` ⭐️ 
   * 설명 *(이거 궁금했다!)*
-    : 클라이언트가 Master Server에 접속 되었을때, +
+    : 클라이언트가 "PhotonServer's Master Server"에 접속 되었을때, +
     그리고 매치메이킹 준비가 되었을떄 호출된다.
     그리고 이 마스터 서버에 접속함에 따라 JoinLobby가 발동되지 않는다면 
     룸 자체도 다른 클라이언트도 못쓴다 
@@ -122,3 +122,13 @@ ebook:
 * ##### b. `IInRoomCallbacks.OnMasterClientSwitched(Player player)`
   * 설명
     : 마스터 클라이언트가 현재 방에 나갔을때, 호출되는 콜백이다.
+
+---
+
+#### 4). [`ILobbyCallbacks`](https://doc-api.photonengine.com/en/pun/current/interface_photon_1_1_realtime_1_1_i_lobby_callbacks.html)
+
+
+* ##### a. `ILobbyCallbacks.OnJoinedLobby();`
+* ##### b. `ILobbyCallbacks.OnLeftLobby();`
+* ##### c. `ILobbyCallbacks.OnRoomListUpdate(List<RoomInfo> roomList);`
+* ##### d. `ILobbyCallbacks.OnLobbyStatisticsUpdate(List<TypedLobbyInfo> lobbyStatistics);`

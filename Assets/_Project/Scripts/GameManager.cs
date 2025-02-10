@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 
 using Photon.Pun;
+using Photon.Pun.Demo.PunBasics;
 using Photon.Realtime;
 
 namespace Com.MyCompany.MyGame
