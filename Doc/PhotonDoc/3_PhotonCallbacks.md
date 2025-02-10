@@ -60,7 +60,8 @@ ebook:
 
 </style>
 
-### 📄 1. PUN 콜백
+## 🔄 PUN 콜백
+
 
 #### 1). `IConnectionCallbacks`
 
@@ -87,7 +88,58 @@ ebook:
 
 ---
 
-#### 2). `IMatchmakingCallbacks`
+#### 2). [`ILobbyCallbacks`](https://doc-api.photonengine.com/en/pun/current/interface_photon_1_1_realtime_1_1_i_lobby_callbacks.html)
+
+##### API 설명 : Realtime Namespace의 요소로 Lobby를 다루는 콜백이다.
+
+* ##### a. `ILobbyCallbacks.OnJoinedLobby()`
+  * 설명
+    : PhotonServer's Master Server 에 로비에 들어갈때 발생하는 콜백
+    : 그리고 여기서는 룸 업데이트가 되지 않고, 
+    `ILobbyCallbacks.OnRoomListUpdate`을 통해 이뤄지니
+    룸에 대한 접근은 `ILobbyCallbacks.OnRoomListUpdate` 내부에서 하자.
+    여기서는 룸 업데이트 관련 함수를 추가하지 말자
+    : 로비 업데이트는 특정 단위 시간마다 자동으로 업데이트 된다.
+
+* ##### b. `ILobbyCallbacks.OnLeftLobby()`
+  * 설명
+    :  클라이언트가 Lobby에서 나간 이후에 호출된다.
+
+* ##### c. `ILobbyCallbacks.OnRoomListUpdate(List<RoomInfo> roomList)`
+  * 설명
+    :  PhotonServer's Master Server에서 호출하는 콜백이니 클라이언트 단에서 특수처리 하지 않으면 이 갱신을 조절할 수 없다.
+  
+
+---
+
+#### 3). [`IInRoomCallbacks`](https://doc-api.photonengine.com/en/pun/current/interface_photon_1_1_realtime_1_1_i_in_room_callbacks.html)
+
+* ##### a. `IInRoomCallbacks.OnPlayerEnteredRoom(Player player)`
+  * 설명
+    : 플레이어가 들어올때 발생하는 콜백
+    굳이 이 콜백을 통해 Photon's playerList를 추가할 필요는 없다.
+    왜냐하면 이 콜백이 호출될 때는 이미 추가 되어 있을 테니깐.
+  * 용례
+    : 플레이어가 충분히 모였는지 체크할때 사용할 수 있다.
+    플레이어 카운팅할 때 유용  
+
+* ##### b. `IInRoomCallbacks.OnPlayerLeftRoom(Player player)`
+  * 설명
+    : 플레이어가 나갈때 혹은 inactive 시 발생하는 콜백 이 둘을 구분 지으려면 `otherPlayer.IsInactive()` 를 호출해 봐라.
+    룸에서 나가거나/lost connection 될 때 발생 할 것이다.
+    굳이 이 콜백을 통해 Photon's playerList를 지울 필요는 없다.
+    왜냐하면 이 콜백이 호출될 때는 이미 제거 되어 있을 테니깐.
+  * 용례
+    : 플레이어가 충분히 모였는지 체크할때 사용할 수 있다.
+    플레이어 카운팅할 때 유용  
+
+* ##### b. `IInRoomCallbacks.OnMasterClientSwitched(Player player)`
+  * 설명
+    : 마스터 클라이언트가 현재 방에 나갔을때, 호출되는 콜백이다.
+
+---
+
+#### 4). `IMatchmakingCallbacks`
 
 * ##### a. `IMatchmakingCallbacks.OnCreatedRoom()`
   * 설명 
@@ -112,23 +164,3 @@ ebook:
   * 설명 
     : OnJoinRoom호출 이후로 GameServer에 참가하지 못했을때, 발생
     Master Server에게 실패 콜백을 전달한다.
-
----
-
-#### 3). [`IInRoomCallbacks`](https://doc-api.photonengine.com/en/pun/current/interface_photon_1_1_realtime_1_1_i_in_room_callbacks.html)
-
-* ##### a. `IInRoomCallbacks.OnPlayerEnteredRoom(Player player)`
-* ##### b. `IInRoomCallbacks.OnPlayerLeftRoom(Player player)`
-* ##### b. `IInRoomCallbacks.OnMasterClientSwitched(Player player)`
-  * 설명
-    : 마스터 클라이언트가 현재 방에 나갔을때, 호출되는 콜백이다.
-
----
-
-#### 4). [`ILobbyCallbacks`](https://doc-api.photonengine.com/en/pun/current/interface_photon_1_1_realtime_1_1_i_lobby_callbacks.html)
-
-
-* ##### a. `ILobbyCallbacks.OnJoinedLobby();`
-* ##### b. `ILobbyCallbacks.OnLeftLobby();`
-* ##### c. `ILobbyCallbacks.OnRoomListUpdate(List<RoomInfo> roomList);`
-* ##### d. `ILobbyCallbacks.OnLobbyStatisticsUpdate(List<TypedLobbyInfo> lobbyStatistics);`

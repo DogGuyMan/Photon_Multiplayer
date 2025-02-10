@@ -62,9 +62,6 @@ ebook:
 
 ## 🔄 PhotonNetwork의 정적 변수들
 
-
----
-
 ### 📄 1. 서버 세팅
 
 #### 1). `ServerSettings PhotonNetwork.PhotonServerSettings[get]`
@@ -214,6 +211,101 @@ ebook:
 네트워크 오퍼레이션 디스패칭을 잠깐 멈추고 싶을때 사용한다.
 * 디스패칭도 안되고, 네트워크도 연결 안되면 `OnPhotonSerializeView`는 어떠한 작업에도 동기화 되지 않을 것이다.
 * 따라서 LevelLoading할때나, RPC 등등 네트워크 동기화 이벤트가 렉 걸리면 Queue를 통해 쌓인다.
+
+---
+
+### 📄 8. PhotonView
+
+#### 1). [`PhotonNetwork.PhotonView`](https://doc-api.photonengine.com/en/pun/current/class_photon_1_1_pun_1_1_photon_view.html)
+
+* ##### 설명
+  ```
+  * 네트워크에 연결해주기 위해서는 PhotonView 컴포넌트가 무조건~ 
+    액터 게임 오브젝트에 붙어있어야 한다. 
+    그래야 액터에 대한 데이터 공유가 가능하기 떄문이다.
+  * `PhotonNetwork.PhotonView`는 네트워크 오브젝트를 식별하며(`viewID`), 
+    타 클라이언트에 의해 조종되는 오브젝트의 생명 주기, Update를 설정을한다. `MonoBehaviour`을 상속하기에
+  * Discrete Synchronization 세팅을 통해 동기화 촘촘도를 설정한다
+  ```
+* ##### 용례 
+  ```
+  1. 동기화 대상 컴포넌트 통함 관리 & 네트워크 오브젝트 상태(위치, 회전)등을 직렬화 해서 동기화 한다.
+        동기화 될 네트워크 오브젝트의 상태는 IObservable이 구현되어 있어야 한다.
+        대표적으로 `IPunObservable`가 있다 
+  2. RPC : 원격 프로시저 호출을 통해 클라이언트 간 이벤트와 함수를 동기화
+  3. 객체 식별 및 소유권 관리 
+     * 오브젝트를 고유하게 식별하고, 누가 오브젝트를 제어하는지 결정
+  4. 네트워크 객체 생명 주기 관리 객체의 생성, 인스턴스화, 소멸을 네트워크 상에서 관리 네트워크 이벤트 콜백 처리
+  ```
+
+<details>
+    <summary> "ID - FindInstance" : 기법 참고해 보기 </summary>
+
+```cs
+public class GlobalManager : Singleton<Manager> {
+    private static NonAllocDictionary<int, IdentifiableMonoBehaviour> idObjectList;
+
+    public static bool TryLocalClean(IdentifiableMonoBehaviour idObject) {
+        idObject.IsRemovedFromLocalObjectList = true;
+        return idObjectList.Remove(idObject.ViewID);
+    }
+
+    public static IdentifiableMonoBehaviour GetObject(int viewID) {
+        IdentifiableMonoBehaviour result = null;
+        idObjectList.TryGetValue(viewID, out resutl);
+        return result;
+    }
+
+    public static void RegisterObject(IdentifiableMonoBehaviour idObject) {
+        if(!Application.isPlaying) {
+            idObjectList = new NonAllocDictionary<int, IdentifiableMonoBehaviour>();
+            return;
+        }
+
+        if(idObject.ViewID != 0) {
+            IdentifiableMonoBehaviour pushedObject = null;
+            if(idObjectList.TryGetValue(idObject.ViewID, out pushedObject)) {
+                return;
+            }
+            idObjectList.Add(idObject.ViewID, idObject);
+            idObject.IsRemovedFromLocalObjectList = false;
+        }
+    }
+}
+
+public class IdentifiableMonoBehaviour : MonoBehaviour {
+    
+    [NoSerialized]
+    private int viewItField = 0;
+    
+    // 네트워크 게임 오브젝트를 식별하는데, per room 방마다 식별한다.
+    // 그리고 이 값은 : "1 : 플레이어 ID", "2 : 씬 ID " 다양한게 된다.
+    public int ViewID {
+        get {return this.viewIdField;}
+        set {
+            // 이미 ID가 할당 되었으므로 재 초기화 막자
+            if(value != 0 && this.viewIdField != 0) {
+                Debug.LogWarning(...); return;
+            }
+            // ViewID = 0을 선언한 것은 일명 이 GameObject를 삭제하는 것과 같다.
+            // OnDestroy() 할때 실행되는 것 과 같다.
+            if(value == 0 && this.viewIdField != 0) {
+                GlobalManager.TryLocalClean(this); //
+            }
+            this.viewIdField = value;
+            if(value != 0) {GlobalManager.RegisterObject(this);}
+        }
+    }
+
+    protected internal void Awake() {
+        if(this.ViewID != 0) {return;} // 이미 초기화 되었으면 재 초기화 막기
+        if(this.sceneViewID != 0) {
+            this.ViewID = this.sceneViewID;
+        }
+    }
+}
+```
+</details>
 
 ---
 
