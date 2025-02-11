@@ -87,7 +87,9 @@
 * ##### b. `IMatchmakingCallbacks.OnJoinedRoom()`
   * 설명 
     : `LoadBalancingClient`가 방에 참가했을때 발생하는 콜백,
-    이 콜백 호출 중, 이후로 부터 Room.Players 에 접근할 수 있고, "플레이어 GameObject"(프리펩 같은) 생성할 수 있다.
+    : 이 콜백 호출 중, 이후로 부터 Room.Players 에 접근할 수 있고, 
+    "플레이어 GameObject"(프리펩 같은) 생성할 수 있다.
+    : 게임 룸이 아예 없을떄 실패함
 
 * ##### c. `IMatchmakingCallbacks.OnLeftRoom()`
   * 설명 
@@ -99,7 +101,9 @@
 * ##### d. `IMatchmakingCallbacks.OnCreateRoomFailed(short returnCode, string message)`
   * 설명 
     : 서버가 방을 만들어지지 못했을때, 발생하는 에러
+    : 동일한 이름의 방이 존재하면 실패함
 * ##### e. `IMatchmakingCallbacks.OnJoinRoomFailed(short returnCode, string message)`
   * 설명 
     : OnJoinRoom호출 이후로 GameServer에 참가하지 못했을때, 발생
     Master Server에게 실패 콜백을 전달한다.
+    : 닫혀있거나 가득찼으면 실패함

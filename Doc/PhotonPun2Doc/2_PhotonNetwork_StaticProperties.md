@@ -1,7 +1,8 @@
 
 ## 🔄 PhotonNetwork의 정적 변수들
 
-> ### 📄  1. 서버 세팅
+---
+> ### 📄   1. 서버 세팅
 
 #### 1). `ServerSettings PhotonNetwork.PhotonServerSettings[get]`
 #### 2). `PhotonNetwork.OfflineMode[get, set]`
@@ -32,8 +33,7 @@
     : 개임 버젼이 일치하는 유저끼리 매칭하도록 함.
 
 ---
-
-> ### 📄  2. 네트워크 연결
+> ### 📄   2. 네트워크 연결
 
 #### 1). `PhotonNetwork.IsConnected`
 
@@ -43,8 +43,7 @@
     `IsConnectedReady` Static Properties도 한번 확인하는것을 추천한다.
 
 ---
-
-> ### 📄  3. 클라이언트 유저 / 플레이어
+> ### 📄   3. 클라이언트 유저 / 플레이어
 
 #### 1). `bool PhotonNetwork.IsMasterClient`
 
@@ -78,8 +77,7 @@
 * "현재 사용가능한 room"을 의미한다.
 
 ---
-
-> ### 📄  4. 룸
+> ### 📄   4. 룸
 
 #### 1). `Room? PhotonNetwork.CurrentRoom`
 
@@ -106,8 +104,7 @@
 * 0 : 하나도 로딩 안됨 / 1 : 로딩이 끝남.
 
 ---
-
-> ### 📄  5. 로비
+> ### 📄   5. 로비
 
 #### 1). `TypedLobby PhotonNetwork.CurrentLobby`
 
@@ -119,8 +116,7 @@
 * `IPunCallbacks.OnRoomListUpdate()`에서 룸이 활성화 되거나 업데이트 되었는지를 쓸떄 사용할 수 있다.
 
 ---
-
-> ### 📄  6. Time
+> ### 📄   6. Time
 
 #### 1). `double PhotonNetwork.Time`
 
@@ -137,7 +133,8 @@
 
 --- 
 
-> ### 📄  7. Utility
+---
+> ### 📄   7. Utility
 
 #### 1). `PhotonNetwork.PrefabPool`
 
@@ -152,8 +149,7 @@
 * 따라서 LevelLoading할때나, RPC 등등 네트워크 동기화 이벤트가 렉 걸리면 Queue를 통해 쌓인다.
 
 ---
-
-> ### 📄  8. PhotonView
+> ### 📄   8. PhotonView
 
 #### 1). [`PhotonNetwork.PhotonView`](https://doc-api.photonengine.com/en/pun/current/class_photon_1_1_pun_1_1_photon_view.html)
 
