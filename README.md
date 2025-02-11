@@ -13,9 +13,14 @@
 
 #### 1). Photon PUN2
 
-1. [용어집](./Doc/PhotonDoc/용어집.md)
-2. [Pun](./Doc/PhotonDoc/0_Pun.md)
-3. [튜토리얼](./Doc/PhotonDoc/1_튜토리얼.md)
+1. [Pun](./Doc/PhotonDoc/0_Pun.md)
+2. [로비](./Doc/PhotonDoc/1_로비.md)
+3. [PUN.PhotonNetwork's Static Properties](./Doc/PhotonDoc/2_PhotonNetwork_StaticProperties.md)
+4. [PUN.PhotonNetwork's Callbacks](./Doc/PhotonDoc/3_PhotonCallbacks.md)
+5. [게임씬 과 룸](./Doc/PhotonDoc/4_게임씬_그리고_룸.md)
+6. [Photon Namespace](./Doc/PhotonDoc/5_Namespaces.md)
+7. [플레이어](./Doc/PhotonDoc/6_플레이어.md)
+8. [PUN.IPunObservable](./Doc/PhotonDoc/7_PUN_Observable.md)
 
 #### 2). Unity Gaming Services Use Cases
 
