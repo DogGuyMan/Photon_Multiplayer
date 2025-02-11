@@ -10,12 +10,12 @@
         이 함수가 호출된 이후에는 Auth 체크를 한다.
         그리고 `OnConnectedToMaster()` 함수가 실행되야지 호출되는 순서다.
   * 용례
-    :   서버에 접근이 가능한지 아닌지를 체크할떄 사용한다.
+    :   서버에 접근이 가능한지 아닌지를 체크할때 사용한다.
         하지만 일반적으로 `OnDisconnected()`에서 체크하는게 대부분이다.
 * ##### b. ⭐️ `IConnectionCallbacks.OnConnectedToMaster()` ⭐️ 
   * 설명 *(이거 궁금했다!)*
     : 클라이언트가 "PhotonServer's Master Server"에 접속 되었을때, +
-    그리고 매치메이킹 준비가 되었을떄 호출된다.
+    그리고 매치메이킹 준비가 되었을때 호출된다.
     그리고 이 마스터 서버에 접속함에 따라 JoinLobby가 발동되지 않는다면 
     룸 자체도 다른 클라이언트도 못쓴다 
     : 여기서 MasterServer는 Photon.Server의 (Master/Game Server)의 그 서버를 말한다.
@@ -64,7 +64,8 @@
 
 * ##### b. `IInRoomCallbacks.OnPlayerLeftRoom(Player player)`
   * 설명
-    : 플레이어가 나갈때 혹은 inactive 시 발생하는 콜백 이 둘을 구분 지으려면 `otherPlayer.IsInactive()` 를 호출해 봐라.
+    : 플레이어가 나갈때 혹은 inactive 시 발생하는 콜백 
+    이 둘을 구분 지으려면 `otherPlayer.IsInactive()` 를 호출해 봐라.
     룸에서 나가거나/lost connection 될 때 발생 할 것이다.
     굳이 이 콜백을 통해 Photon's playerList를 지울 필요는 없다.
     왜냐하면 이 콜백이 호출될 때는 이미 제거 되어 있을 테니깐.
@@ -89,11 +90,11 @@
     : `LoadBalancingClient`가 방에 참가했을때 발생하는 콜백,
     : 이 콜백 호출 중, 이후로 부터 Room.Players 에 접근할 수 있고, 
     "플레이어 GameObject"(프리펩 같은) 생성할 수 있다.
-    : 게임 룸이 아예 없을떄 실패함
+    : 게임 룸이 아예 없을때 실패함
 
 * ##### c. `IMatchmakingCallbacks.OnLeftRoom()`
   * 설명 
-    : `PhotonNetwork.LeaveRoom()`를 사용하고 
+    : `PUN.PhotonNetwork.LeaveRoom()`를 사용하고 
     로컬의 user/client가 방을 떠났을때, 애플리케이션이 종료될때, 발생할 것이다.
     LoadBalancingClient는 GameServer와 연결이 끊어질 것이고, 대신 Master Server에 연결될 것이다.
     순서는 `OnConnectedToMaster`이 호출되야 그다음에 수행될 것이다.

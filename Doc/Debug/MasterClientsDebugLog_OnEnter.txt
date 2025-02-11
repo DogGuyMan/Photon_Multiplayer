@@ -45,7 +45,7 @@ Photon.Pun.PhotonHandler:Dispatch () (at /UnityProjects/UnityMultiplayerDemo/Ass
 Photon.Pun.PhotonHandler:FixedUpdate () (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonHandler.cs:156)
 
 PUN Basics Tutorial/Launcher: OnJoinRandomRoomFailed() was called by PUN. No random room available, so we create one.
-Calling: PhotonNetwork.CreateRoom
+Calling: PUN.PhotonNetwork.CreateRoom
 UnityEngine.Debug:Log (object)
 Com.MyCompany.MyGame.Launcher:OnJoinRandomFailed (int16,string) (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/PUN/Launcher.cs:125)
 Photon.Realtime.MatchMakingCallbacksContainer:OnJoinRandomFailed (int16,string) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs:4432)
@@ -95,8 +95,8 @@ Registered PhotonView: 1001
 UnityEngine.Debug:Log (object)
 Photon.Pun.PhotonNetwork:RegisterPhotonView (Photon.Pun.PhotonView) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetworkPart.cs:1027)
 Photon.Pun.PhotonView:set_ViewID (int) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonView.cs:319)
-Photon.Pun.PhotonNetwork:NetworkInstantiate (Photon.Pun.InstantiateParameters,bool,bool) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetwork.cs:2638)
-Photon.Pun.PhotonNetwork:Instantiate (string,UnityEngine.Vector3,UnityEngine.Quaternion,byte,object[]) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PhotonNetwork.cs:2481)
+Photon.Pun.PhotonNetwork:NetworkInstantiate (Photon.Pun.InstantiateParameters,bool,bool) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PUN.PhotonNetwork.cs:2638)
+Photon.Pun.PhotonNetwork:Instantiate (string,UnityEngine.Vector3,UnityEngine.Quaternion,byte,object[]) (at /UnityProjects/UnityMultiplayerDemo/Assets/Photon/PhotonUnityNetworking/Code/PUN.PhotonNetwork.cs:2481)
 Com.MyCompany.MyGame.GameManager:Start () (at /UnityProjects/UnityMultiplayerDemo/Assets/_Project/Scripts/GameManager.cs:57)
 
 

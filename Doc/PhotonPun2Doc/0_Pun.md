@@ -27,7 +27,7 @@
 
 #### 1). 연결 
 
-##### `PhotonNetwork.ConnectUsingSettings()`
+##### `PUN.PhotonNetwork.ConnectUsingSettings()`
 
 * 즉시 온라인 상태로 만들어 줌
     ```
@@ -43,10 +43,10 @@
     PhotonNetwork에 구독될 수 있는 target 형태가 되야 한다.
       ```cs
       // 예를들어 유니티에서, MonoBehaviour의 OnEnable() 과 OnDisable()을 사용하실 수 있습니다.
-      PhotonNetwork.AddCallbackTarget(this);
-      PhotonNetwork.RemoveCallbackTarget(this);
+      PUN.PhotonNetwork.AddCallbackTarget(this);
+      PUN.PhotonNetwork.RemoveCallbackTarget(this);
       ```
-    * b : 클래스가 `PhotonNetwork.XXXCallbackTarget(this)`에 구독 가능한 
+    * b : 클래스가 `PUN.PhotonNetwork.XXXCallbackTarget(this)`에 구독 가능한 
     target 형태가 되려면, Pun 콜백 인터페이스를 Implement해야 한다.
 
 2. **`MonoBehaviourPunCallbacks` 클래스 상속받기**
@@ -103,7 +103,7 @@
 ##### ① 네트워크 게임 오브젝트
 * `PhotonView Componenet` 컴포넌트가 Add 된 게임 오브젝트는
 * `PhotonView.ViewID`를 통해 네트워크 객체를 식별한다.
-* "networked GameObjects" 로써 `PhotonNetwork.Instantiate`를 통해 동적 생성할 수 있다. 
+* "networked GameObjects" 로써 `PUN.PhotonNetwork.Instantiate`를 통해 동적 생성할 수 있다. 
 * 또한 객체-제어 이전 : 게임 오브젝트의 제어권을 요청하거나 양도할 수 있음.
 
 
@@ -130,7 +130,7 @@
 
 ##### ③ Non-GameObject Class 메시징
 * GameObject와 별개로 이벤트 전송도 가능하다.
-* `PhotonNetwork.RaiseEvent(eventCode, eventContent, raiseEventOptions, SendOptions.SendReliable);`
+* `PUN.PhotonNetwork.RaiseEvent(eventCode, eventContent, raiseEventOptions, SendOptions.SendReliable);`
 
 ##### ④ **메세지를 서버에 버퍼링 할 수도 있다.** 
 * 나중에 참가한 플레이어에게 메세지 전송
@@ -142,7 +142,7 @@
 * 모든 플레이어가 동일 게임 서버에 연결되므로, 이벤트 타이밍을 동기화 할 때 사용할 수 있다.
 
 #### 4). 비교하고 스왑(Compare-And-Swap, CAS)
-* 클라 변조를 막을떄 사용할 수 있을 것 같아 보인다.
+* 클라 변조를 막을때 사용할 수 있을 것 같아 보인다.
 
 #### 5). WebHooks 그리고 데이터 보관 전략
 * Photon Server와 다른 서비스 및 사용자 서비스를 연결하기 위해서 WebHooks의 개념을 이용합니다.

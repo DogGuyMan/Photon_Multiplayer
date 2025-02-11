@@ -1,39 +1,36 @@
 
 ## 🔄 네트워크 오브젝트 상태 동기화
 
----
- 
 #### 1). `Pun.IPunObservable.OnPhotonSerializeView()`
 
 * `OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)` 함수를 구현함으로 
 직렬화가 가능한 클래스로 만들어 주도록 한다.
 * 이 직렬화는 PUN에 의해 단위시간당 몇번정도로만 호출된다.
+  ```cs
+  public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
+  {
+      public bool IsFiring;
+      public float Health;
+      #region IPunObservable implementation
 
-```cs
-public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
-{
-    public bool IsFiring;
-    public float Health;
-    #region IPunObservable implementation
+      public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+      {
+          if (stream.IsWriting)
+          {
+              // We own this player: send the others our data
+              stream.SendNext(IsFiring);
+              stream.SendNext(Health);
+          }
+          else
+          {
+              // Network player, receive data
+              this.IsFiring = (bool)stream.ReceiveNext();
+              this.Health = (float)stream.ReceiveNext();
+          }
+      }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            // We own this player: send the others our data
-            stream.SendNext(IsFiring);
-            stream.SendNext(Health);
-        }
-        else
-        {
-            // Network player, receive data
-            this.IsFiring = (bool)stream.ReceiveNext();
-            this.Health = (float)stream.ReceiveNext();
-        }
-    }
-
-    #endregion
-```
+      #endregion
+  ```
 
 ---
  
@@ -70,7 +67,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
 #### 3). `Pun.PhotonStreamQueue`
 
 * PhotonStreamQueue는 
-PhotonNetwork.SendRate에서 정한 빈도보다 더 높은 주기로 오브젝트 상태를 폴링하도록 도와주며,
+PUN.PhotonNetwork.SendRate에서 정한 빈도보다 더 높은 주기로 오브젝트 상태를 폴링하도록 도와주며,
 * Serialize()가 호출되면 이 상태들을 한 번에 전송합니다. 
 * 수신 측에서는 Deserialize()를 호출하면, 스트림이 기록된 순서와 시간 간격에 맞춰 
 * 받은 오브젝트 상태들을 순차적으로 출력합니다.
